@@ -230,6 +230,15 @@ if obj_play.inEditor = 1{
     if instance = obj_ladder{
         sprite_index = spr_smb1_ladder;
     }
+    if instance = obj_newbowser{
+        sprite_index = spr_smb1_bowsergui;
+    }
+    if instance = obj_newdrybowser{
+        sprite_index = spr_smb1_drybowsergui;
+    }
+    if instance = obj_peachbowser{
+        sprite_index = spr_smb1_peachbowsergui;
+    }
     
     spriteVal = sprite_index;
 } else {
@@ -256,6 +265,21 @@ if obj_play.inEditor = 1{
             altDrag = 1;
         }
         if instance = obj_newgoomba{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
+        if instance = obj_newbowser{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
+        if instance = obj_newdrybowser{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
+        if instance = obj_peachbowser{
             offset = 8;
             yFloor -= 8;
             altDrag = 1;

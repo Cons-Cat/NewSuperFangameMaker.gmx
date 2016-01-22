@@ -94,6 +94,128 @@ fromBlock = 0;
 billFire = 0;
 alarm[3] = 8;
 
+//Boss AI | 0 = Enemey; 1 = Bowser
+boss = 0;
+bossMove = 1;
+bossFire = 1;
+bossDir = 0;
+shootLoop = 0;
+bossJump = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Boss Jumping
+vspeed = -1.8;
+bossJump = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Boss changing direction
+shootLoop = 0;
+if collision_point(x,y+19,obj_solidtop,true,false){
+    bossDir = choose(0,0,1);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///SHOOTING LOTS OF FIREBALLS (Boss)
+if bossFire = 2{
+    bossFire = 0;
+    alarm[5] = 60;
+} else {
+    bossFire = 1;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Boss Movement
+if bossMove = 2{
+    bossMove = 0;
+    alarm[4] = 60;
+} else {
+    bossMove = 1;
+}
+
 </string>
           </argument>
         </arguments>
@@ -245,6 +367,11 @@ if instance_exists(obj_play){
         kick = 0;
         kickDeadly = 0;
         image_speed = 0;
+        bossMove = 1;
+        bossFire = 1;
+        bossDir = 0;
+        shootLoop = 0;
+        bossJump = 0;
         
         if fromBlock = 1{
             instance_destroy();
@@ -261,30 +388,95 @@ if instance_exists(obj_play){
                 instance_destroy();
             }
         } else {
-            if boo = 0 &amp;&amp; bill = 0{
-                //Gravity
-                if !collision_point(x,y+9,obj_solidtop,true,false){
-                    gravity = 0.16;
+            if boss = 0{
+                if boo = 0 &amp;&amp; bill = 0{
+                    //Gravity
+                    if !collision_point(x,y+9,obj_solidtop,true,false){
+                        gravity = 0.16;
+                    }
+                    if !collision_point(x,y+9,obj_block_parent,true,false){
+                        gravity = 0.16;
+                    }
+                    //Terminal velocity
+                    if vspeed &gt; 2{
+                        vspeed = 2;
+                    }
+                    
+                    if dead = 0{
+                        if billFire = 0{
+                            //Moving left
+                            if direct = 0{
+                                hspeed = -0.35;
+                                image_xscale = 1;
+                            }
+                            //Moving right
+                            if direct = 1{
+                                hspeed = 0.35;
+                                image_xscale = -1;
+                            }
+                        }
+                    }
                 }
-                if !collision_point(x,y+9,obj_block_parent,true,false){
-                    gravity = 0.16;
-                }
-                //Terminal velocity
-                if vspeed &gt; 2{
-                    vspeed = 2;
-                }
-                
-                if dead = 0{
-                    if billFire = 0{
-                        //Moving left
-                        if direct = 0{
-                            hspeed = -0.35;
+            } else {
+                if boss = 1{
+                    //Bowser code
+                    if bossMove != 0{
+                        //Stepping around
+                        if obj_player.x &gt; self.x{
+                            if bossDir = 0{
+                                hspeed = 0.45;
+                            } else {
+                                hspeed = -0.45;
+                            }
+                            image_xscale = -1;
+                        }
+                        if obj_player.x &lt; self.x{
+                            if bossDir = 0{
+                                hspeed = -0.45;
+                            } else {
+                                hspeed = 0.45;
+                            }
                             image_xscale = 1;
                         }
-                        //Moving right
-                        if direct = 1{
-                            hspeed = 0.35;
-                            image_xscale = -1;
+                        
+                        if bossMove = 1{
+                            bossMove = 2;
+                            alarm[4] = 90;
+                        }
+                        
+                        //Shooting
+                        if bossFire != 0{
+                            sprite_index = fireSpr;
+                            if bossFire = 1{
+                                alarm[5] = 120;
+                                bossFire = 2;
+                            }
+                        } else {
+                            sprite_index = liveSpr;
+                        }
+                        
+                        //Handling step loop
+                        if shootLoop = 0{
+                            shootLoop = 1;
+                            alarm[6] = 40;
+                        }
+                        
+                        //Jumping
+                        if bossJump = 0{
+                            bossJump = 1;
+                            alarm[7] = 120;
+                        }
+                        
+                        //Gravity
+                        if !collision_point(x,y+17,obj_solidtop,true,false){
+                            gravity = 0.32;
+                        }
+                        if !collision_point(x,y+17,obj_block_parent,true,false){
+                            gravity = 0.32;
+                        }
+                        //Terminal velocity
+                        if vspeed &gt; 2{
+                            vspeed = 2;
                         }
                     }
                 }

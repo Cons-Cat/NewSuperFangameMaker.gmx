@@ -100,11 +100,13 @@ if instance_exists(obj_amiibo_yoshibit){
         visible = true;
     }
 }
-/*
-if value = 4{
-    x = obj_amiibo_inkboy.x;
-    y = obj_amiibo_inkboy.y;
-    obj_amiiboselect.text = "Inkling Boy"
+
+if instance_exists(obj_amiibo_inkboy){
+    if value = 4{
+        x = obj_amiibo_inkboy.x;
+        y = obj_amiibo_inkboy.y;
+        obj_amiiboselect.text = "Inkling Boy"
+    }
 }
 if value = 5{
     x = obj_amiibo_inkgril.x;
@@ -115,7 +117,7 @@ if value = 6{
     x = obj_amiibo_inksquid.x;
     y = obj_amiibo_inksquid.y;
     obj_amiiboselect.text = "Inkling Squid"
-}*/
+}
 if instance_exists(obj_amiibo_bowser){
     if value = 7{
         x = obj_amiibo_bowser.x;
@@ -164,12 +166,13 @@ if instance_exists(obj_amiibo_drmariobit){
         visible = true;
     }
 }
-/*
-if value = 10{
-    x = obj_amiibo_sonic.x;
-    y = obj_amiibo_sonic.y;
-    obj_amiiboselect.text = "Sonic"
-}*/
+if instance_exists(obj_amiibo_sonic){
+    if value = 10{
+        x = obj_amiibo_sonic.x;
+        y = obj_amiibo_sonic.y;
+        obj_amiiboselect.text = "Sonic"
+    }
+}
 if instance_exists(obj_amiibo_wario){
     if value = 11{
         x = obj_amiibo_wario.x;
@@ -234,35 +237,47 @@ if instance_exists(obj_amiibo_silvermariobit){
         visible = true;
     }
 }
-/*if value = 15{
-    x = obj_amiibo_wiifit.x;
-    y = obj_amiibo_wiifit.y;
-    obj_amiiboselect.text = "Wii Fit Trainer"
+if instance_exists(obj_amiibo_wiifit){
+    if value = 15{
+        x = obj_amiibo_wiifit.x;
+        y = obj_amiibo_wiifit.y;
+        obj_amiiboselect.text = "Wii Fit Trainer"
+    }
 }
-if value = 16{
-    x = obj_amiibo_duckhunt.x;
-    y = obj_amiibo_duckhunt.y;
-    obj_amiiboselect.text = "Duck Hunt"
+if instance_exists(obj_amiibo_duckhunt){
+    if value = 16{
+        x = obj_amiibo_duckhunt.x;
+        y = obj_amiibo_duckhunt.y;
+        obj_amiiboselect.text = "Duck Hunt"
+    }
 }
-if value = 17{
-    x = obj_amiibo_kirby.x;
-    y = obj_amiibo_kirby.y;
-    obj_amiiboselect.text = "Kirby"
+if instance_exists(obj_amiibo_kirby){
+    if value = 17{
+        x = obj_amiibo_kirby.x;
+        y = obj_amiibo_kirby.y;
+        obj_amiiboselect.text = "Kirby"
+    }
 }
-if value = 18{
-    x = obj_amiibo_yarng.x;
-    y = obj_amiibo_yarng.y;
-    obj_amiiboselect.text = "Green Yarn Yoshi"
+if instance_exists(obj_amiibo_yarng){
+    if value = 18{
+        x = obj_amiibo_yarng.x;
+        y = obj_amiibo_yarng.y;
+        obj_amiiboselect.text = "Green Yarn Yoshi"
+    }
 }
-if value = 19{
-    x = obj_amiibo_yarnb.x;
-    y = obj_amiibo_yarnb.y;
-    obj_amiiboselect.text = "Light Blue Yarn Yoshi"
+if instance_exists(obj_amiibo_yarnb){
+    if value = 19{
+        x = obj_amiibo_yarnb.x;
+        y = obj_amiibo_yarnb.y;
+        obj_amiiboselect.text = "Light Blue Yarn Yoshi"
+    }
 }
-if value = 20{
-    x = obj_amiibo_yarnp.x;
-    y = obj_amiibo_yarnp.y;
-    obj_amiiboselect.text = "Pink Yarn Yoshi"
+if instance_exists(obj_amiibo_yarnp){
+    if value = 20{
+        x = obj_amiibo_yarnp.x;
+        y = obj_amiibo_yarnp.y;
+        obj_amiiboselect.text = "Pink Yarn Yoshi"
+    }
 }
 if value = 21{
     x = obj_amiibo_pacman.x;
@@ -314,194 +329,489 @@ if value = 30{
     y = obj_amiibo_darkpit.y;
     obj_amiiboselect.text = "Dark Pit"
 }
-if value = 31{
-    x = obj_amiibo_palutena.x;
-    y = obj_amiibo_palutena.y;
-    obj_amiiboselect.text = "Palutena"
+if instance_exists(obj_amiibo_palutena){
+    if value = 31{
+        x = obj_amiibo_palutena.x;
+        y = obj_amiibo_palutena.y;
+        obj_amiiboselect.text = "Palutena"
+    }
 }
-if value = 32{
-    x = obj_amiibo_link.x;
-    y = obj_amiibo_link.y;
-    obj_amiiboselect.text = "Classic Link"
+if instance_exists(obj_amiibo_link){
+    if value = 32{
+        x = obj_amiibo_link.x;
+        y = obj_amiibo_link.y;
+        obj_amiiboselect.text = "Classic Link"
+    }
 }
-if value = 33{
-    x = obj_amiibo_gw.x;
-    y = obj_amiibo_gw.y;
-    obj_amiiboselect.text = "Mr. Game &amp; Watch"
+if instance_exists(obj_amiibo_gw){
+    if value = 33{
+        x = obj_amiibo_gw.x;
+        y = obj_amiibo_gw.y;
+        obj_amiiboselect.text = "Mr. Game &amp; Watch"
+    }
 }
-if value = 34{
-    x = obj_amiibo_lucario.x;
-    y = obj_amiibo_lucario.y;
-    obj_amiiboselect.text = "Lucario"
+if instance_exists(obj_amiibo_lucario){
+    if value = 34{
+        x = obj_amiibo_lucario.x;
+        y = obj_amiibo_lucario.y;
+        obj_amiiboselect.text = "Lucario"
+    }
 }
-if value = 35{
-    x = obj_amiibo_greninja.x;
-    y = obj_amiibo_greninja.y;
-    obj_amiiboselect.text = "Greninja"
+if instance_exists(obj_amiibo_greninja){
+    if value = 35{
+        x = obj_amiibo_greninja.x;
+        y = obj_amiibo_greninja.y;
+        obj_amiiboselect.text = "Greninja"
+    }
 }
-if value = 37{
-    x = obj_amiibo_lucario2.x;
-    y = obj_amiibo_lucario2.y;
-    obj_amiiboselect.text = "Sexy Hips Dog"
+if instance_exists(obj_amiibo_lucario2){
+    if value = 37{
+        x = obj_amiibo_lucario2.x;
+        y = obj_amiibo_lucario2.y;
+        obj_amiiboselect.text = "Sexy Hips Dog"
+    }
 }
-
-
-if value = 38{
-    x = obj_amiibo_megaman.x;
-    y = obj_amiibo_megaman.y;
-    obj_amiiboselect.text = "Mega Man"
+if instance_exists(obj_amiibo_megaman){
+    if value = 38{
+        x = obj_amiibo_megaman.x;
+        y = obj_amiibo_megaman.y;
+        obj_amiiboselect.text = "Mega Man"
+    }
 }
-if value = 39{
-    x = obj_amiibo_rob.x;
-    y = obj_amiibo_rob.y;
-    obj_amiiboselect.text = "R.O.B."
+if instance_exists(obj_amiibo_rob){
+    if value = 39{
+        x = obj_amiibo_rob.x;
+        y = obj_amiibo_rob.y;
+        obj_amiiboselect.text = "R.O.B."
+    }
 }
-if value = 40{
-    x = obj_amiibo_dedede.x;
-    y = obj_amiibo_dedede.y;
-    obj_amiiboselect.text = "King Dedede"
+if instance_exists(obj_amiibo_dedede){
+    if value = 40{
+        x = obj_amiibo_dedede.x;
+        y = obj_amiibo_dedede.y;
+        obj_amiiboselect.text = "King Dedede"
+    }
 }
-if value = 41{
-    x = obj_amiibo_metaknight.x;
-    y = obj_amiibo_metaknight.y;
-    obj_amiiboselect.text = "Meta Knight"
+if instance_exists(obj_amiibo_metaknight){
+    if value = 41{
+        x = obj_amiibo_metaknight.x;
+        y = obj_amiibo_metaknight.y;
+        obj_amiiboselect.text = "Meta Knight"
+    }
 }
-if value = 42{
-    x = obj_amiibo_donkeykong.x;
-    y = obj_amiibo_donkeykong.y;
-    obj_amiiboselect.text = "Donkey Kong"
+if instance_exists(obj_amiibo_donkeykong){
+    if value = 42{
+        x = obj_amiibo_donkeykong.x;
+        y = obj_amiibo_donkeykong.y;
+        obj_amiiboselect.text = "Donkey Kong"
+    }
 }
-if value = 43{
-    x = obj_amiibo_diddykong.x;
-    y = obj_amiibo_diddykong.y;
-    obj_amiiboselect.text = "Diddy Kong"
+if instance_exists(obj_amiibo_diddykong){
+    if value = 43{
+        x = obj_amiibo_diddykong.x;
+        y = obj_amiibo_diddykong.y;
+        obj_amiiboselect.text = "Diddy Kong"
+    }
 }
-if value = 44{
-    x = obj_amiibo_samus.x;
-    y = obj_amiibo_samus.y;
-    obj_amiiboselect.text = "Samus"
+if instance_exists(obj_amiibo_samus){
+    if value = 44{
+        x = obj_amiibo_samus.x;
+        y = obj_amiibo_samus.y;
+        obj_amiiboselect.text = "Samus"
+    }
 }
-if value = 45{
-    x = obj_amiibo_bmario.x;
-    y = obj_amiibo_bmario.y;
-    obj_amiiboselect.text = "Block Mario"
+if instance_exists(obj_amiibo_bmario){
+    if value = 45{
+        x = obj_amiibo_bmario.x;
+        y = obj_amiibo_bmario.y;
+        obj_amiiboselect.text = "Block Mario"
+    }
 }
-if value = 46{
-    x = obj_amiibo_waluigi.x;
-    y = obj_amiibo_waluigi.y;
-    obj_amiiboselect.text = "Waluigi"
+if instance_exists(obj_amiibo_waluigi){
+    if value = 46{
+        x = obj_amiibo_waluigi.x;
+        y = obj_amiibo_waluigi.y;
+        obj_amiiboselect.text = "Waluigi"
+    }
 }
-if value = 47{
-    x = obj_amiibo_goomba.x;
-    y = obj_amiibo_goomba.y;
-    obj_amiiboselect.text = "Goomba"
+if instance_exists(obj_amiibo_goomba){
+    if value = 47{
+        x = obj_amiibo_goomba.x;
+        y = obj_amiibo_goomba.y;
+        obj_amiiboselect.text = "Goomba"
+    }
 }
-if value = 48{
-    x = obj_amiibo_octoling.x;
-    y = obj_amiibo_octoling.y;
-    obj_amiiboselect.text = "Octoling"
+if instance_exists(obj_amiibo_octoling){
+    if value = 48{
+        x = obj_amiibo_octoling.x;
+        y = obj_amiibo_octoling.y;
+        obj_amiiboselect.text = "Octoling"
+    }
 }
-if value = 49{
-    x = obj_amiibo_eliteoctoling.x;
-    y = obj_amiibo_eliteoctoling.y;
-    obj_amiiboselect.text = "Elite Octoling"
+if instance_exists(obj_amiibo_eliteoctoling){
+    if value = 49{
+        x = obj_amiibo_eliteoctoling.x;
+        y = obj_amiibo_eliteoctoling.y;
+        obj_amiiboselect.text = "Elite Octoling"
+    }
 }
-if value = 50{
-    x = obj_amiibo_mewtwo.x;
-    y = obj_amiibo_mewtwo.y;
-    obj_amiiboselect.text = "Mewtwo"
+if instance_exists(obj_amiibo_mewtwo){
+    if value = 50{
+        x = obj_amiibo_mewtwo.x;
+        y = obj_amiibo_mewtwo.y;
+        obj_amiiboselect.text = "Mewtwo"
+    }
 }
-if value = 51{
-    x = obj_amiibo_charizard.x;
-    y = obj_amiibo_charizard.y;
-    obj_amiiboselect.text = "Charizard"
+if instance_exists(obj_amiibo_charizard){
+    if value = 51{
+        x = obj_amiibo_charizard.x;
+        y = obj_amiibo_charizard.y;
+        obj_amiiboselect.text = "Charizard"
+    }
 }
-if value = 52{
-    x = obj_amiibo_jigglypuff.x;
-    y = obj_amiibo_jigglypuff.y;
-    obj_amiiboselect.text = "Jigglypuff"
+if instance_exists(obj_amiibo_jigglypuff){
+    if value = 52{
+        x = obj_amiibo_jigglypuff.x;
+        y = obj_amiibo_jigglypuff.y;
+        obj_amiiboselect.text = "Jigglypuff"
+    }
 }
-if value = 53{
-    x = obj_amiibo_mlink.x;
-    y = obj_amiibo_mlink.y;
-    obj_amiiboselect.text = "Link"
+if instance_exists(obj_amiibo_mlink){
+    if value = 53{
+        x = obj_amiibo_mlink.x;
+        y = obj_amiibo_mlink.y;
+        obj_amiiboselect.text = "Link"
+    }
 }
-if value = 54{
-    x = obj_amiibo_zelda.x;
-    y = obj_amiibo_zelda.y;
-    obj_amiiboselect.text = "Zelda"
+if instance_exists(obj_amiibo_zelda){
+    if value = 54{
+        x = obj_amiibo_zelda.x;
+        y = obj_amiibo_zelda.y;
+        obj_amiiboselect.text = "Zelda"
+    }
 }
-if value = 55{
-    x = obj_amiibo_sheik.x;
-    y = obj_amiibo_sheik.y;
-    obj_amiiboselect.text = "Sheik"
+if instance_exists(obj_amiibo_sheik){
+    if value = 55{
+        x = obj_amiibo_sheik.x;
+        y = obj_amiibo_sheik.y;
+        obj_amiiboselect.text = "Sheik"
+    }
 }
-if value = 56{
-    x = obj_amiibo_villager.x;
-    y = obj_amiibo_villager.y;
-    obj_amiiboselect.text = "Villager"
+if instance_exists(obj_amiibo_villager){
+    if value = 56{
+        x = obj_amiibo_villager.x;
+        y = obj_amiibo_villager.y;
+        obj_amiiboselect.text = "Villager"
+    }
 }
-if value = 57{
-    x = obj_amiibo_isabelle.x;
-    y = obj_amiibo_isabelle.y;
-    obj_amiiboselect.text = "Isabelle"
+if instance_exists(obj_amiibo_isabelle){
+    if value = 57{
+        x = obj_amiibo_isabelle.x;
+        y = obj_amiibo_isabelle.y;
+        obj_amiiboselect.text = "Isabelle"
+    }
 }
-if value = 58{
-    x = obj_amiibo_isabelle2.x;
-    y = obj_amiibo_isabelle2.y;
-    obj_amiiboselect.text = "Modern Isabelle"
+if instance_exists(obj_amiibo_isabelle2){
+    if value = 58{
+        x = obj_amiibo_isabelle2.x;
+        y = obj_amiibo_isabelle2.y;
+        obj_amiiboselect.text = "Isabelle (Winter)"
+    }
 }
-if value = 59{
-    x = obj_amiibo_metalsonic.x;
-    y = obj_amiibo_metalsonic.y;
-    obj_amiiboselect.text = "Metal Sonic"
+if instance_exists(obj_amiibo_metalsonic){
+    if value = 59{
+        x = obj_amiibo_metalsonic.x;
+        y = obj_amiibo_metalsonic.y;
+        obj_amiiboselect.text = "Metal Sonic"
+    }
 }
-if value = 60{
-    x = obj_amiibo_captainfalcon.x;
-    y = obj_amiibo_captainfalcon.y;
-    obj_amiiboselect.text = "Captain Falcon"
+if instance_exists(obj_amiibo_captainfalcon){
+    if value = 60{
+        x = obj_amiibo_captainfalcon.x;
+        y = obj_amiibo_captainfalcon.y;
+        obj_amiiboselect.text = "Captain Falcon"
+    }
 }
-if value = 61{
-    x = obj_amiibo_shulk.x;
-    y = obj_amiibo_shulk.y;
-    obj_amiiboselect.text = "Shulk"
+if instance_exists(obj_amiibo_shulk){
+    if value = 61{
+        x = obj_amiibo_shulk.x;
+        y = obj_amiibo_shulk.y;
+        obj_amiiboselect.text = "Shulk"
+    }
 }
-if value = 62{
-    x = obj_amiibo_ryu.x;
-    y = obj_amiibo_ryu.y;
-    obj_amiiboselect.text = "Ryu"
+if instance_exists(obj_amiibo_ryu){
+    if value = 62{
+        x = obj_amiibo_ryu.x;
+        y = obj_amiibo_ryu.y;
+        obj_amiiboselect.text = "Ryu"
+    }
 }
-if value = 63{
-    x = obj_amiibo_olimar.x;
-    y = obj_amiibo_olimar.y;
-    obj_amiiboselect.text = "Olimar"
+if instance_exists(obj_amiibo_olimar){
+    if value = 63{
+        x = obj_amiibo_olimar.x;
+        y = obj_amiibo_olimar.y;
+        obj_amiiboselect.text = "Olimar"
+    }
 }
-if value = 64{
-    x = obj_amiibo_marth.x;
-    y = obj_amiibo_marth.y;
-    obj_amiiboselect.text = "Marth"
+if instance_exists(obj_amiibo_marth){
+    if value = 64{
+        x = obj_amiibo_marth.x;
+        y = obj_amiibo_marth.y;
+        obj_amiiboselect.text = "Marth"
+    }
 }
-if value = 65{
-    x = obj_amiibo_spring.x;
-    y = obj_amiibo_spring.y;
-    obj_amiiboselect.text = "Spring"
+if instance_exists(obj_amiibo_spring){
+    if value = 65{
+        x = obj_amiibo_spring.x;
+        y = obj_amiibo_spring.y;
+        obj_amiiboselect.text = "Spring"
+    }
 }
-if value = 66{
-    x = obj_amiibo_callie.x;
-    y = obj_amiibo_callie.y;
-    obj_amiiboselect.text = "Callie"
+if instance_exists(obj_amiibo_callie){
+    if value = 66{
+        x = obj_amiibo_callie.x;
+        y = obj_amiibo_callie.y;
+        obj_amiiboselect.text = "Callie"
+    }
 }
-if value = 67{
-    x = obj_amiibo_marie.x;
-    y = obj_amiibo_marie.y;
-    obj_amiiboselect.text = "Marie"
+if instance_exists(obj_amiibo_marie){
+    if value = 67{
+        x = obj_amiibo_marie.x;
+        y = obj_amiibo_marie.y;
+        obj_amiiboselect.text = "Marie"
+    }
 }
-if value = 68{
-    x = obj_amiibo_walrus.x;
-    y = obj_amiibo_walrus.y;
-    obj_amiiboselect.text = "Walrus"
-}*/
-
+if instance_exists(obj_amiibo_walrus){
+    if value = 106{
+        x = obj_amiibo_walrus.x;
+        y = obj_amiibo_walrus.y;
+        obj_amiiboselect.text = "Walrus"
+    }
+}
+if instance_exists(obj_amiibo_makermario){
+    if value = 68{
+        x = obj_amiibo_makermario.x;
+        y = obj_amiibo_makermario.y;
+        obj_amiiboselect.text = "Maker Mario"
+    }
+}
+if instance_exists(obj_amiibo_classicwario){
+    if value = 80{
+        x = obj_amiibo_classicwario.x;
+        y = obj_amiibo_classicwario.y;
+        obj_amiiboselect.text = "Wario (Classic)"
+    }
+}
+if instance_exists(obj_amiibo_papermario){
+    if value = 81{
+        x = obj_amiibo_papermario.x;
+        y = obj_amiibo_papermario.y;
+        obj_amiiboselect.text = "Paper Mario"
+    }
+}
+if instance_exists(obj_amiibo_paperluigi){
+    if value = 82{
+        x = obj_amiibo_paperluigi.x;
+        y = obj_amiibo_paperluigi.y;
+        obj_amiiboselect.text = "Paper Luigi"
+    }
+}
+if instance_exists(obj_amiibo_mrl){
+    if value = 83{
+        x = obj_amiibo_mrl.x;
+        y = obj_amiibo_mrl.y;
+        obj_amiiboselect.text = "Mr. L"
+    }
+}
+if instance_exists(obj_amiibo_paperpeach){
+    if value = 84{
+        x = obj_amiibo_paperpeach.x;
+        y = obj_amiibo_paperpeach.y;
+        obj_amiiboselect.text = "Paper Peach"
+    }
+}
+if instance_exists(obj_amiibo_paperbowser){
+    if value = 85{
+        x = obj_amiibo_paperbowser.x;
+        y = obj_amiibo_paperbowser.y;
+        obj_amiiboselect.text = "Paper Bowser"
+    }
+}
+if instance_exists(obj_amiibo_dreammario){
+    if value = 86{
+        x = obj_amiibo_dreammario.x;
+        y = obj_amiibo_dreammario.y;
+        obj_amiiboselect.text = "Mario (Dream Team)"
+    }
+}
+if instance_exists(obj_amiibo_dreamluigi){
+    if value = 87{
+        x = obj_amiibo_dreamluigi.x;
+        y = obj_amiibo_dreamluigi.y;
+        obj_amiiboselect.text = "Luigi (Dream Team)"
+    }
+}
+if instance_exists(obj_amiibo_giantluigi){
+    if value = 88{
+        x = obj_amiibo_giantluigi.x;
+        y = obj_amiibo_giantluigi.y;
+        obj_amiiboselect.text = "Giant Luigi"
+    }
+}
+if instance_exists(obj_amiibo_mltrio){
+    if value = 89{
+        x = obj_amiibo_mltrio.x;
+        y = obj_amiibo_mltrio.y;
+        obj_amiiboselect.text = "Mario Trio"
+    }
+}
+if instance_exists(obj_amiibo_goomp){
+    if value = 90{
+        x = obj_amiibo_goomp.x;
+        y = obj_amiibo_goomp.y;
+        obj_amiiboselect.text = "Private Goomp"
+    }
+}
+if instance_exists(obj_amiibo_paraplonk){
+    if value = 91{
+        x = obj_amiibo_paraplonk.x;
+        y = obj_amiibo_paraplonk.y;
+        obj_amiiboselect.text = "Corporal Paraplonk"
+    }
+}
+if instance_exists(obj_amiibo_searguy){
+    if value = 92{
+        x = obj_amiibo_searguy.x;
+        y = obj_amiibo_searguy.y;
+        obj_amiiboselect.text = "Seargeant Guy"
+    }
+}
+if instance_exists(obj_amiibo_drybowser){
+    if value = 93{
+        x = obj_amiibo_drybowser.x;
+        y = obj_amiibo_drybowser.y;
+        obj_amiiboselect.text = "Dry Bowser"
+    }
+}
+if instance_exists(obj_amiibo_nabbit){
+    if value = 94{
+        x = obj_amiibo_nabbit.x;
+        y = obj_amiibo_nabbit.y;
+        obj_amiiboselect.text = "Nabbit"
+    }
+}
+if instance_exists(obj_amiibo_kingboo){
+    if value = 95{
+        x = obj_amiibo_kingboo.x;
+        y = obj_amiibo_kingboo.y;
+        obj_amiiboselect.text = "King Boo"
+    }
+}
+if instance_exists(obj_amiibo_kingbobomb){
+    if value = 96{
+        x = obj_amiibo_kingbobomb.x;
+        y = obj_amiibo_kingbobomb.y;
+        obj_amiiboselect.text = "King Bob-Omb"
+    }
+}
+if instance_exists(obj_amiibo_petey){
+    if value = 97{
+        x = obj_amiibo_petey.x;
+        y = obj_amiibo_petey.y;
+        obj_amiiboselect.text = "Petey Piranha"
+    }
+}
+if instance_exists(obj_amiibo_marioworld){
+    if value = 98{
+        x = obj_amiibo_marioworld.x;
+        y = obj_amiibo_marioworld.y;
+        obj_amiiboselect.text = "Mario (Super Mario World)"
+    }
+}
+if instance_exists(obj_amiibo_mercedesbig){
+    if value = 99{
+        x = obj_amiibo_mercedesbig.x;
+        y = obj_amiibo_mercedesbig.y;
+        obj_amiiboselect.text = "Mercedes Benz"
+    }
+}
+if instance_exists(obj_amiibo_mercedessmall){
+    if value = 100{
+        x = obj_amiibo_mercedessmall.x;
+        y = obj_amiibo_mercedessmall.y;
+        obj_amiiboselect.text = "Mercedes Benz (Small)"
+    }
+}
+if instance_exists(obj_amiibo_makermario){
+    if value = 69{
+        x = obj_amiibo_makermario.x;
+        y = obj_amiibo_makermario.y;
+        obj_amiiboselect.text = "Maker Mario"
+    }
+}
+if instance_exists(obj_amiibo_fox){
+    if value = 101{
+        x = obj_amiibo_fox.x;
+        y = obj_amiibo_fox.y;
+        obj_amiiboselect.text = "Fox McCloud"
+    }
+}
+if instance_exists(obj_amiibo_falco){
+    if value = 102{
+        x = obj_amiibo_falco.x;
+        y = obj_amiibo_falco.y;
+        obj_amiiboselect.text = "Falco Lombardi"
+    }
+}
+if instance_exists(obj_amiibo_wiiu){
+    if value = 103{
+        x = obj_amiibo_wiiu.x;
+        y = obj_amiibo_wiiu.y;
+        obj_amiiboselect.text = "Wii U"
+    }
+}
+if instance_exists(obj_amiibo_3ds){
+    if value = 104{
+        x = obj_amiibo_3ds.x;
+        y = obj_amiibo_3ds.y;
+        obj_amiiboselect.text = "3DS"
+    }
+}
+if instance_exists(obj_amiibo_xp){
+    if value = 105{
+        x = obj_amiibo_xp.x;
+        y = obj_amiibo_xp.y;
+        obj_amiiboselect.text = "Windows XP"
+    }
+}
+if instance_exists(obj_amiibo_dog){
+    if value = 107{
+        x = obj_amiibo_dog.x;
+        y = obj_amiibo_dog.y;
+        obj_amiiboselect.text = "UNDERTALE Dog"
+    }
+}
+if instance_exists(obj_amiibo_superyoshi){
+    if value = 109{
+        x = obj_amiibo_superyoshi.x;
+        y = obj_amiibo_superyoshi.y;
+        obj_amiiboselect.text = "Super Yoshi"
+    }
+}
+if instance_exists(obj_amiibo_superyoshi){
+    if value = 110{
+        x = obj_amiibo_roushi.x;
+        y = obj_amiibo_roushi.y;
+        obj_amiiboselect.text = "Roushi"
+    }
+}
+if instance_exists(obj_amiibo_willsaber){
+    if value = 108{
+        x = obj_amiibo_willsaber.x;
+        y = obj_amiibo_willsaber.y;
+        obj_amiiboselect.text = "Willsaber"
+    }
+}
 
 } else {
     instance_destroy();

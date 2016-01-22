@@ -5,8 +5,8 @@
   <visible>-1</visible>
   <depth>-11000</depth>
   <persistent>0</persistent>
-  <parentName>obj_amiibo_parent</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <parentName>obj_amiibosel_parent</parentName>
+  <maskName>spr_amiiboselectbox</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>startx = 16;
-starty = 15;
+            <string>event_inherited();
 value = 16;
 
 </string>

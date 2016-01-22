@@ -71,6 +71,7 @@ if global.skin = 0{
 }
 if global.skin = 1{
     sprite_index = spr_hell_bush;
+    image_speed = 0.15;
 }
 
 </string>

@@ -60,51 +60,50 @@ if !instance_exists(target){
     instance_destroy();
 } else {
     item = target.item;
-}
-
-if item = 1{
-    spr = spr_smb1_mushroom;
-    imidx = 0;
-}
-if item = 2{
-    spr = spr_smb1_fireflower;
-    imidx = 0;
-}
-if item = 3{
-    spr = spr_smb1_lasflower;
-    imidx = 0;
-}
-if item = 4{
-    spr = spr_smb1_cappy;
-    imidx = 0;
-}
-if item = 101{
-    spr = spr_smb1_armflower;
-    imidx = 0;
-}
-if target.enemyVal = obj_newgoomba{
-    spr = spr_smb1_goomba;
-    imidx = 0;
-}
-if target.enemyVal = obj_newkoopa{
-    spr = spr_smb1_koopagui;
-    imidx = 0;
-}
-if target.enemyVal = obj_newkoopared{
-    spr = spr_smb1_kooparedgui;
-    imidx = 0;
-}
-if target.enemyVal = obj_bootile{
-    spr = spr_smb1_bootile;
-    imidx = choose(1,2,3,4);
-}
-if target.enemyVal = obj_newspiny{
-    spr = spr_smb1_spiny;
-    imidx = 0;
-}
-if item = -2{
-    spr = spr_smb1_vine;
-    imidx = choose(1,2,3,4,5,6,7,8);
+    if item = 1{
+        spr = spr_smb1_mushroom;
+        imidx = 0;
+    }
+    if item = 2{
+        spr = spr_smb1_fireflower;
+        imidx = 0;
+    }
+    if item = 3{
+        spr = spr_smb1_lasflower;
+        imidx = 0;
+    }
+    if item = 4{
+        spr = spr_smb1_cappy;
+        imidx = 0;
+    }
+    if item = 101{
+        spr = spr_smb1_armflower;
+        imidx = 0;
+    }
+    if target.enemyVal = obj_newgoomba{
+        spr = spr_smb1_goomba;
+        imidx = 0;
+    }
+    if target.enemyVal = obj_newkoopa{
+        spr = spr_smb1_koopagui;
+        imidx = 0;
+    }
+    if target.enemyVal = obj_newkoopared{
+        spr = spr_smb1_kooparedgui;
+        imidx = 0;
+    }
+    if target.enemyVal = obj_bootile{
+        spr = spr_smb1_bootile;
+        imidx = choose(1,2,3,4);
+    }
+    if target.enemyVal = obj_newspiny{
+        spr = spr_smb1_spiny;
+        imidx = 0;
+    }
+    if item = -2{
+        spr = spr_smb1_vine;
+        imidx = choose(1,2,3,4,5,6,7,8);
+    }
 }
 
 </string>

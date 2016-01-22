@@ -105,6 +105,7 @@
     <instance objName="obj_gui_tiles" x="464" y="140" name="inst_6FC86821" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gui_reset" x="416" y="48" name="inst_4DF194C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gui_load" x="416" y="96" name="inst_7BBCC9A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_scen_sign" x="80" y="208" name="inst_747A87F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

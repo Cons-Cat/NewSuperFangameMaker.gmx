@@ -489,6 +489,18 @@
           <sprite>sprites\spr_smb1_thwomp</sprite>
           <sprite>sprites\spr_smb1_spiny</sprite>
         </sprites>
+        <sprites name="Bosses">
+          <sprite>sprites\spr_smb1_bowser</sprite>
+          <sprite>sprites\spr_smb1_bowser_fire</sprite>
+          <sprite>sprites\spr_smb1_bowsergui</sprite>
+          <sprite>sprites\spr_smb1_drybowsergui</sprite>
+          <sprite>sprites\spr_smb1_firebreath</sprite>
+          <sprite>sprites\spr_smb1_drybowser</sprite>
+          <sprite>sprites\spr_smb1_drybowser_fire</sprite>
+          <sprite>sprites\spr_smb1_peachbowser</sprite>
+          <sprite>sprites\spr_smb1_peachbowser_fire</sprite>
+          <sprite>sprites\spr_smb1_peachbowsergui</sprite>
+        </sprites>
       </sprites>
       <sprites name="Hello Engine">
         <sprite>sprites\spr_hell_tile</sprite>
@@ -697,6 +709,7 @@
       </sprites>
       <sprites name="Yoshi">
         <sprite>sprites\spr_yoshiamiibo_still</sprite>
+        <sprite>sprites\spr_yoshiamiibo_duck</sprite>
         <sprite>sprites\spr_yoshiamiibo_walk</sprite>
         <sprite>sprites\spr_yoshiamiibo_skid</sprite>
         <sprite>sprites\spr_yoshiamiibo_jump</sprite>
@@ -706,6 +719,22 @@
           <sprite>sprites\spr_yoshibit_walk</sprite>
           <sprite>sprites\spr_yoshibit_skid</sprite>
           <sprite>sprites\spr_yoshbit_jump</sprite>
+        </sprites>
+        <sprites name="Super Yoshi">
+          <sprite>sprites\spr_superyoshi_still</sprite>
+          <sprite>sprites\spr_superyoshi_walk</sprite>
+          <sprite>sprites\spr_superyoshi_jump</sprite>
+          <sprite>sprites\spr_superyoshi_skid</sprite>
+          <sprite>sprites\spr_superyoshi_duck</sprite>
+          <sprite>sprites\spr_superyoshi_pose</sprite>
+        </sprites>
+        <sprites name="Roushi">
+          <sprite>sprites\spr_roushi_still</sprite>
+          <sprite>sprites\spr_roushi_walk</sprite>
+          <sprite>sprites\spr_roushi_duck</sprite>
+          <sprite>sprites\spr_roushi_skid</sprite>
+          <sprite>sprites\spr_roushi_jump</sprite>
+          <sprite>sprites\spr_roushi_pose</sprite>
         </sprites>
       </sprites>
       <sprites name="Inkling Boy">
@@ -731,6 +760,7 @@
         <sprite>sprites\spr_bowseramiibo_still</sprite>
         <sprite>sprites\spr_bowseramiibo_walk</sprite>
         <sprite>sprites\spr_bowseramiibo_skid</sprite>
+        <sprite>sprites\spr_bowseramiibo_fall</sprite>
         <sprite>sprites\spr_bowseramiibo_jump</sprite>
         <sprite>sprites\spr_bowseramiibo_pose</sprite>
         <sprites name="8-bit">
@@ -1273,6 +1303,210 @@
         <sprite>sprites\spr_paperpeach_still</sprite>
         <sprite>sprites\spr_paperpeach_walk</sprite>
         <sprite>sprites\spr_paperpeach_skid</sprite>
+        <sprite>sprites\spr_paperpeach_jump</sprite>
+        <sprite>sprites\spr_paperpeach_duck</sprite>
+        <sprite>sprites\spr_paperpeach_pose</sprite>
+        <sprite>sprites\spr_paperpeach_flag</sprite>
+      </sprites>
+      <sprites name="Paper Bowser">
+        <sprite>sprites\spr_paperbowser_still</sprite>
+        <sprite>sprites\spr_paperbowser_walk</sprite>
+        <sprite>sprites\spr_paperbowser_skid</sprite>
+        <sprite>sprites\spr_paperbowser_jump</sprite>
+        <sprite>sprites\spr_paperbowser_duck</sprite>
+        <sprite>sprites\spr_paperbowser_pose</sprite>
+        <sprite>sprites\spr_paperbowser_flag</sprite>
+      </sprites>
+      <sprites name="M&amp;L Trio">
+        <sprite>sprites\spr_trio_still</sprite>
+        <sprite>sprites\spr_trio_pose</sprite>
+        <sprite>sprites\spr_trio_walk</sprite>
+        <sprite>sprites\spr_trio_skid</sprite>
+        <sprite>sprites\spr_trio_jump</sprite>
+        <sprite>sprites\spr_trio_fall</sprite>
+        <sprite>sprites\spr_trio_duck</sprite>
+        <sprite>sprites\spr_trio_flag</sprite>
+      </sprites>
+      <sprites name="Undertale Dawg">
+        <sprite>sprites\spr_dawg_still</sprite>
+        <sprite>sprites\spr_dawg_skid</sprite>
+        <sprite>sprites\spr_dawg_walk</sprite>
+        <sprite>sprites\spr_dawg_jump</sprite>
+        <sprite>sprites\spr_dawg_duck</sprite>
+        <sprite>sprites\spr_dawg_pose</sprite>
+        <sprite>sprites\spr_dawg_flag</sprite>
+      </sprites>
+      <sprites name="Mario World">
+        <sprite>sprites\spr_marioworld_still</sprite>
+        <sprite>sprites\spr_marioworld_walk</sprite>
+        <sprite>sprites\spr_marioworld_skid</sprite>
+        <sprite>sprites\spr_marioworld_jump</sprite>
+        <sprite>sprites\spr_marioworld_duck</sprite>
+        <sprite>sprites\spr_marioworld_pose</sprite>
+        <sprite>sprites\spr_marioworld_flag</sprite>
+        <sprites name="8-bit">
+          <sprite>sprites\spr_marioworldbit_still</sprite>
+          <sprite>sprites\spr_marioworldbit_walk</sprite>
+          <sprite>sprites\spr_marioworldbit_skid</sprite>
+          <sprite>sprites\spr_marioworldbit_jump</sprite>
+          <sprite>sprites\spr_marioworldbit_duck</sprite>
+          <sprite>sprites\spr_marioworldbit_pose</sprite>
+          <sprite>sprites\spr_marioworldbit_flag</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Dry Bowser">
+        <sprite>sprites\spr_drybowser_still</sprite>
+        <sprite>sprites\spr_drybowser_skid</sprite>
+        <sprite>sprites\spr_drybowser_walk</sprite>
+        <sprite>sprites\spr_drybowser_jump</sprite>
+        <sprite>sprites\spr_drybowser_fall</sprite>
+        <sprite>sprites\spr_drybowser_pose</sprite>
+        <sprite>sprites\spr_drybowser_flag</sprite>
+        <sprite>sprites\spr_drybowser_duck</sprite>
+      </sprites>
+      <sprites name="Private Goomp">
+        <sprite>sprites\spr_goomp_still</sprite>
+        <sprite>sprites\spr_goomp_skid</sprite>
+        <sprite>sprites\spr_goomp_walk</sprite>
+        <sprite>sprites\spr_goomp_duck</sprite>
+        <sprite>sprites\spr_goomp_jump</sprite>
+        <sprite>sprites\spr_goomp_fall</sprite>
+        <sprite>sprites\spr_goomp_pose</sprite>
+        <sprite>sprites\spr_goomp_flag</sprite>
+      </sprites>
+      <sprites name="Corporal Paraplonk">
+        <sprite>sprites\spr_plonk_still</sprite>
+        <sprite>sprites\spr_plonk_skid</sprite>
+        <sprite>sprites\spr_plonk_walk</sprite>
+        <sprite>sprites\spr_plonk_fall</sprite>
+        <sprite>sprites\spr_plonk_jump</sprite>
+        <sprite>sprites\spr_plonk_pose</sprite>
+        <sprite>sprites\spr_plonk_flag</sprite>
+        <sprite>sprites\spr_plonk_duck</sprite>
+      </sprites>
+      <sprites name="Seargeant Guy">
+        <sprite>sprites\spr_searguy_still</sprite>
+        <sprite>sprites\spr_searguy_walk</sprite>
+        <sprite>sprites\spr_searguy_skid</sprite>
+        <sprite>sprites\spr_searguy_jump</sprite>
+        <sprite>sprites\spr_searguy_fall</sprite>
+        <sprite>sprites\spr_searguy_pose</sprite>
+        <sprite>sprites\spr_searguy_duck</sprite>
+        <sprite>sprites\spr_searguy_flag</sprite>
+      </sprites>
+      <sprites name="Mercedes Benz">
+        <sprite>sprites\spr_mercades_still</sprite>
+        <sprite>sprites\spr_mercedes_walk</sprite>
+        <sprite>sprites\spr_mercedes_jump</sprite>
+        <sprite>sprites\spr_mercedes_skid</sprite>
+        <sprite>sprites\spr_mercedes_pose</sprite>
+        <sprite>sprites\spr_mercedes_duck</sprite>
+        <sprite>sprites\spr_mercedes_flag</sprite>
+      </sprites>
+      <sprites name="Small Mercedes Benz">
+        <sprite>sprites\spr_smallmerc_still</sprite>
+        <sprite>sprites\spr_smallmerc_walk</sprite>
+        <sprite>sprites\spr_smallmerc_skid</sprite>
+        <sprite>sprites\spr_smallmerc_pose</sprite>
+        <sprite>sprites\spr_smallmerc_duck</sprite>
+        <sprite>sprites\spr_smallmerc_fall</sprite>
+        <sprite>sprites\spr_smallmerc_jump</sprite>
+        <sprite>sprites\spr_smallmerc_flag</sprite>
+      </sprites>
+      <sprites name="Nabbit">
+        <sprite>sprites\spr_nabbit_still</sprite>
+        <sprite>sprites\spr_nabbit_walk</sprite>
+        <sprite>sprites\spr_nabbit_skid</sprite>
+        <sprite>sprites\spr_nabbit_duck</sprite>
+        <sprite>sprites\spr_nabbit_pose</sprite>
+        <sprite>sprites\spr_nabbit_jump</sprite>
+        <sprite>sprites\spr_nabbit_flag</sprite>
+      </sprites>
+      <sprites name="Giant Luigi">
+        <sprite>sprites\spr_giantweegee_still</sprite>
+        <sprite>sprites\spr_giantweegee_walk</sprite>
+        <sprite>sprites\spr_giantweegee_jump</sprite>
+        <sprite>sprites\spr_giantweegee_skid</sprite>
+        <sprite>sprites\spr_giantweegee_duck</sprite>
+        <sprite>sprites\spr_giantweegee_flag</sprite>
+        <sprite>sprites\spr_giantweegee_pose</sprite>
+      </sprites>
+      <sprites name="King Boo">
+        <sprite>sprites\spr_kboo_still</sprite>
+        <sprite>sprites\spr_kboo_walk</sprite>
+        <sprite>sprites\spr_kboo_skid</sprite>
+        <sprite>sprites\spr_kboo_jump</sprite>
+        <sprite>sprites\spr_kboo_pose</sprite>
+        <sprite>sprites\spr_kboo_duck</sprite>
+      </sprites>
+      <sprites name="King Bob-Omb">
+        <sprite>sprites\spr_kbomb_still</sprite>
+        <sprite>sprites\spr_kbomb_walk</sprite>
+        <sprite>sprites\spr_kbomb_skid</sprite>
+        <sprite>sprites\spr_kbomb_jump</sprite>
+        <sprite>sprites\spr_kbomb_pose</sprite>
+      </sprites>
+      <sprites name="Petey Piranha">
+        <sprite>sprites\spr_pete_still</sprite>
+        <sprite>sprites\spr_pete_skid</sprite>
+        <sprite>sprites\spr_pete_walk</sprite>
+        <sprite>sprites\spr_pete_jump</sprite>
+        <sprite>sprites\spr_pete_duck</sprite>
+        <sprite>sprites\spr_pete_flag</sprite>
+        <sprite>sprites\spr_pete_pose</sprite>
+      </sprites>
+      <sprites name="Wii U">
+        <sprite>sprites\spr_wii_still</sprite>
+        <sprite>sprites\spr_wii_walk</sprite>
+        <sprite>sprites\spr_wii_duck</sprite>
+        <sprite>sprites\spr_wii_jump</sprite>
+        <sprite>sprites\spr_wii_skid</sprite>
+        <sprite>sprites\spr_wii_pose</sprite>
+      </sprites>
+      <sprites name="3DS">
+        <sprite>sprites\spr_3ds_still</sprite>
+        <sprite>sprites\spr_3ds_walk</sprite>
+        <sprite>sprites\spr_3ds_jump</sprite>
+        <sprite>sprites\spr_3ds_duck</sprite>
+        <sprite>sprites\spr_3ds_pose</sprite>
+        <sprite>sprites\spr_3ds_skid</sprite>
+      </sprites>
+      <sprites name="Windows XP">
+        <sprite>sprites\spr_xp_still</sprite>
+        <sprite>sprites\spr_xp_duck</sprite>
+        <sprite>sprites\spr_xp_skid</sprite>
+        <sprite>sprites\spr_xp_jump</sprite>
+        <sprite>sprites\spr_xp_pose</sprite>
+      </sprites>
+      <sprites name="Fox">
+        <sprite>sprites\spr_fox_still</sprite>
+        <sprite>sprites\spr_fox_skid</sprite>
+        <sprite>sprites\spr_fox_jump</sprite>
+        <sprite>sprites\spr_fox_pose</sprite>
+        <sprite>sprites\spr_fox_flag</sprite>
+        <sprite>sprites\spr_fox_walk</sprite>
+        <sprite>sprites\spr_foxfire</sprite>
+      </sprites>
+      <sprites name="Falco">
+        <sprite>sprites\spr_falco_still</sprite>
+        <sprite>sprites\spr_falco_skid</sprite>
+        <sprite>sprites\spr_falco_jump</sprite>
+        <sprite>sprites\spr_falco_pose</sprite>
+        <sprite>sprites\spr_falco_flag</sprite>
+        <sprite>sprites\spr_falco_walk</sprite>
+      </sprites>
+      <sprites name="Willsaber">
+        <sprite>sprites\spr_will_still</sprite>
+        <sprite>sprites\spr_will_walk</sprite>
+        <sprite>sprites\spr_will_skid</sprite>
+        <sprite>sprites\spr_will_jump</sprite>
+        <sprite>sprites\spr_will_pose</sprite>
+        <sprite>sprites\spr_will_duck</sprite>
+        <sprite>sprites\spr_will_flag</sprite>
+      </sprites>
+      <sprites name="Crusades Mario">
+        <sprite>sprites\spr_crusade_still</sprite>
+        <sprite>sprites\spr_crusade_walk</sprite>
       </sprites>
       <sprite>sprites\spr_amiiboselect_mush</sprite>
       <sprite>sprites\spr_amiiboselect</sprite>
@@ -1296,10 +1530,12 @@
         <sprite>sprites\spr_smb1_bush_snow</sprite>
         <sprite>sprites\spr_smb1_tree</sprite>
         <sprite>sprites\spr_smb1_tree_snow</sprite>
+        <sprite>sprites\spr_smb1_sign</sprite>
       </sprites>
       <sprites name="Hello Engine">
         <sprite>sprites\spr_hell_bush</sprite>
         <sprite>sprites\spr_hell_tree</sprite>
+        <sprite>sprites\spr_hell_sign</sprite>
       </sprites>
     </sprites>
     <sprites name="Doodle God">
@@ -1484,6 +1720,11 @@
         <object>objects\obj_bulletbillcannon</object>
         <object>objects\obj_newboo</object>
       </objects>
+      <objects name="Bosses">
+        <object>objects\obj_newbowser</object>
+        <object>objects\obj_newdrybowser</object>
+        <object>objects\obj_peachbowser</object>
+      </objects>
     </objects>
     <objects name="GUI Tiles">
       <object>objects\obj_togglelevel_left</object>
@@ -1609,6 +1850,37 @@
       <object>objects\obj_amiibo_olimar</object>
       <object>objects\obj_amiibo_marth</object>
       <object>objects\obj_amiibo_walrus</object>
+      <object>objects\obj_amiibo_classicwario</object>
+      <object>objects\obj_amiibo_papermario</object>
+      <object>objects\obj_amiibo_paperluigi</object>
+      <object>objects\obj_amiibo_mrl</object>
+      <object>objects\obj_amiibo_paperpeach</object>
+      <object>objects\obj_amiibo_paperbowser</object>
+      <object>objects\obj_amiibo_dreammario</object>
+      <object>objects\obj_amiibo_dreamluigi</object>
+      <object>objects\obj_amiibo_giantluigi</object>
+      <object>objects\obj_amiibo_mltrio</object>
+      <object>objects\obj_amiibo_goomp</object>
+      <object>objects\obj_amiibo_paraplonk</object>
+      <object>objects\obj_amiibo_searguy</object>
+      <object>objects\obj_amiibo_drybowser</object>
+      <object>objects\obj_amiibo_nabbit</object>
+      <object>objects\obj_amiibo_kingboo</object>
+      <object>objects\obj_amiibo_kingbobomb</object>
+      <object>objects\obj_amiibo_petey</object>
+      <object>objects\obj_amiibo_marioworld</object>
+      <object>objects\obj_amiibo_makermario</object>
+      <object>objects\obj_amiibo_mercedesbig</object>
+      <object>objects\obj_amiibo_mercedessmall</object>
+      <object>objects\obj_amiibo_fox</object>
+      <object>objects\obj_amiibo_falco</object>
+      <object>objects\obj_amiibo_wiiu</object>
+      <object>objects\obj_amiibo_3ds</object>
+      <object>objects\obj_amiibo_xp</object>
+      <object>objects\obj_amiibo_dog</object>
+      <object>objects\obj_amiibo_willsaber</object>
+      <object>objects\obj_amiibo_superyoshi</object>
+      <object>objects\obj_amiibo_roushi</object>
       <object>objects\obj_amiiboselect</object>
       <object>objects\obj_amiibo_die</object>
       <object>objects\obj_aura</object>
@@ -1686,6 +1958,7 @@
     <objects name="Scenary">
       <object>objects\obj_scen_bush</object>
       <object>objects\obj_scen_tree</object>
+      <object>objects\obj_scen_sign</object>
     </objects>
     <objects name="Mixer">
       <object>objects\obj_hex_init</object>

@@ -1095,7 +1095,7 @@ if global.skin = 0{
                 sprite_index = spr_marie_pose;
             }
         }
-        if amiibo = 68{
+        if amiibo = 106{
             if sprite_index = spr_mario_1_still{
                 sprite_index = spr_walrus_still
             }
@@ -1297,6 +1297,606 @@ if global.skin = 0{
             }
             if sprite_index = spr_mario_1_pose{
                 sprite_index = spr_silvermarioamiibo_pose;
+            }
+        }
+        if amiibo = 80{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_classicwario_still
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_classicwario_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_classicwario_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_classicwario_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_classicwario_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_classicwario_duck;
+            }
+        }
+        if amiibo = 81{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_papermario_still
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_papermario_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_papermario_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_papermario_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_papermario_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_papermario_duck;
+            }
+        }
+        if amiibo = 82{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_paperluigi_still
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_paperluigi_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_paperluigi_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_paperluigi_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_paperluigi_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_paperluigi_duck;
+            }
+        }
+        if amiibo = 83{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_paperl_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_paperl_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_paperl_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_paperl_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_paperl_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_paperl_duck;
+            }
+        }
+        if amiibo = 84{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_paperpeach_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_paperpeach_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_paperpeach_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_paperpeach_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_paperpeach_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_paperpeach_duck;
+            }
+        }
+        if amiibo = 85{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_paperbowser_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_paperbowser_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_paperbowser_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_paperbowser_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_paperbowser_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_paperbowser_duck;
+            }
+        }
+        if amiibo = 86{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_dreammario_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_dreammario_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_dreammario_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_dreammario_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_dreammario_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_dreammario_still;
+            }
+        }
+        if amiibo = 87{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_dreamluigi_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_dreamluigi_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_dreamluigi_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_dreamluigi_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_dreamluigi_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_dreamluigi_still;
+            }
+        }
+        if amiibo = 88{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_giantweegee_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_giantweegee_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_giantweegee_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_giantweegee_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_giantweegee_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_giantweegee_duck;
+            }
+        }
+        if amiibo = 89{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_trio_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_trio_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_trio_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_trio_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_trio_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_trio_duck;
+            }
+        }
+        if amiibo = 90{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_goomp_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_goomp_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_goomp_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_goomp_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_goomp_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_goomp_duck;
+            }
+        }
+        if amiibo = 91{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_plonk_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_plonk_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_plonk_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_plonk_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_plonk_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_plonk_duck;
+            }
+        }
+        if amiibo = 92{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_searguy_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_searguy_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_searguy_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_searguy_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_searguy_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_searguy_duck;
+            }
+        }
+        if amiibo = 93{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_drybowser_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_drybowser_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_drybowser_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_drybowser_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_drybowser_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_drybowser_duck;
+            }
+        }
+        if amiibo = 94{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_nabbit_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_nabbit_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_nabbit_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_nabbit_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_nabbit_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_nabbit_duck;
+            }
+        }
+        if amiibo = 95{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_kboo_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_kboo_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_kboo_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_kboo_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_kboo_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_kboo_duck;
+            }
+        }
+        if amiibo = 96{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_kbomb_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_kbomb_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_kbomb_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_kbomb_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_kbomb_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_kbomb_still;
+            }
+        }
+        if amiibo = 97{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_pete_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_pete_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_pete_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_pete_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_pete_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_pete_duck;
+            }
+        }
+        if amiibo = 98{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_marioworld_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_marioworld_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_marioworld_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_marioworld_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_marioworld_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_marioworld_duck;
+            }
+        }
+        if amiibo = 99{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_mercades_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_mercedes_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_mercedes_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_mercedes_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_mercedes_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_mercedes_duck;
+            }
+        }
+        if amiibo = 100{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_smallmerc_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_smallmerc_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_smallmerc_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_smallmerc_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_smallmerc_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_smallmerc_duck;
+            }
+        }
+        if amiibo = 101{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_fox_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_fox_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_fox_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_fox_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_fox_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_fox_still;
+            }
+        }
+        if amiibo = 102{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_falco_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_falco_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_falco_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_falco_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_falco_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_falco_still;
+            }
+        }
+        if amiibo = 103{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_wii_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_wii_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_wii_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_wii_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_wii_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_wii_duck;
+            }
+        }
+        if amiibo = 104{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_3ds_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_3ds_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_3ds_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_3ds_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_3ds_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_3ds_duck;
+            }
+        }
+        if amiibo = 105{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_xp_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_xp_still;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_xp_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_xp_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_xp_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_xp_duck;
+            }
+        }
+        if amiibo = 107{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_dawg_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_dawg_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_dawg_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_dawg_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_dawg_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_dawg_duck;
+            }
+        }
+        if amiibo = 108{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_will_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_will_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_will_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_will_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_will_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_will_duck;
+            }
+        }
+        if amiibo = 109{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_superyoshi_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_superyoshi_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_superyoshi_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_superyoshi_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_superyoshi_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_superyoshi_duck;
+            }
+        }
+        if amiibo = 110{
+            if sprite_index = spr_mario_1_still{
+                sprite_index = spr_roushi_still;
+            }
+            if sprite_index = spr_mario_1_walk{
+                sprite_index = spr_roushi_walk;
+            }
+            if sprite_index = spr_mario_1_skid{
+                sprite_index = spr_roushi_skid;
+            }
+            if sprite_index = spr_mario_1_jump{
+                sprite_index = spr_roushi_jump;
+            }
+            if sprite_index = spr_mario_1_pose{
+                sprite_index = spr_roushi_pose;
+            }
+            if sprite_index = spr_bigmario_1_duck{
+                sprite_index = spr_roushi_duck;
             }
         }
     }

@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>startx = 16*18-16;
-starty = 31*2-15;
+            <string>event_inherited();
 value = 43;
 
 </string>

@@ -949,7 +949,7 @@ if keyboard_check(vk_left){
 if keyboard_check_pressed(vk_down){
     if obj_play.inEditor = 0{
         //if jumpnow = 0{
-            if (global.skin = 0 &amp;&amp; item != 0 &amp;&amp; item != 4) || global.skin != 0{
+            if (global.skin = 0 &amp;&amp; item != 0 &amp;&amp; item != 4) || global.skin != 0 || amiibo != 0{
                 duck = 1;
                 sprite_index = spr_bigmario_1_duck;
             }
@@ -2628,6 +2628,11 @@ if amiibo = 2{
         sprite_index = spr_peachamiibo_fall;
     }
 }
+if amiibo = 7{
+    if vspeed &gt; 0{
+        sprite_index = spr_bowseramiibo_fall;
+    }
+}
 if amiibo = 15{
     if vspeed &gt; 0{
         sprite_index = spr_wiiamiibo_fall;
@@ -2801,9 +2806,9 @@ if image_xscale = 1 || (image_xscale = -1 &amp;&amp; hspeed &gt; 0){
             }
         }
     } else {
-        if collision_point(x+8,y-8,obj_solid,false,false){
+        if collision_rectangle(x+9,y-15,x+10,y+15,obj_solid,false,false){
             //x --;
-            x = collision_point(x+8,y-8,obj_solid,false,false).x-8;
+            x = collision_rectangle(x+9,y-15,x+10,y+15,obj_solid,false,false).x-8;
             hspeed = 0;
             
             if jumpnow = 0{
@@ -2829,7 +2834,7 @@ if image_xscale = -1 || (image_xscale = 1 &amp;&amp; hspeed &lt; 0){
             }
         }
     } else {
-        if collision_point(x-8,y-8,obj_solid,false,false){
+        if collision_rectangle(x-9,y-15,x-10,y+15,obj_solid,false,false){
             //x ++;
             //x = collision_point(x-8,y-8,obj_solid,false,false).x+16;
             hspeed = 0;

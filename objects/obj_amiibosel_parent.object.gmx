@@ -28,10 +28,12 @@
             <string>startx = 0;
 starty = 0;
 value = 1;
-alarm[0] = 2;
+alarm[0] = 1;
 item = 0;
 amiibo = 1;
 hit = 0;
+yoff = 0;
+visible = false;
 
 </string>
           </argument>
@@ -61,6 +63,7 @@ starty = 16*(numv*2)+15;
 if object_index = obj_amiibo_instance{
     amiibo = value;
 }
+visible = true;
 
 </string>
           </argument>
@@ -85,7 +88,11 @@ if object_index = obj_amiibo_instance{
           <argument>
             <kind>1</kind>
             <string>x = obj_amiibobck.x+startx;
-y = obj_amiibobck.y+starty;
+y = obj_amiibobck.y+starty;//-yoff;
+
+if numv = 9{
+    yoff = 2;
+}
 
 </string>
           </argument>
