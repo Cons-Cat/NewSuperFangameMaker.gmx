@@ -40,7 +40,7 @@
           <argument>
             <kind>1</kind>
             <string>sound = snd_powerup_smw;
-item = 100;
+item = 131;
 
 </string>
           </argument>

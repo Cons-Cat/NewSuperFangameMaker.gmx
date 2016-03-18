@@ -3,7 +3,7 @@
   <spriteName>spr_smb1_itemblock</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>obj_block_parent</parentName>
   <maskName>obj_itemblock_mask</maskName>
@@ -50,7 +50,7 @@ tarSet = 0;
 canMake = 0;
 alarm[5] = 8;
 breaking = 0;
-enemyVal = obj_newgoomba;
+enemyVal = -1;
 
 </string>
           </argument>
@@ -110,27 +110,27 @@ if item != 0{
             riTar = instance_create(x,y,obj_enemy_rise);
             riTar.val = self.enemyVal;
         }
-        if item = 1{
+        if item = 1 || (obj_player.item = 0 &amp;&amp; item != 131) &amp;&amp; enemyVal &lt; 0 &amp;&amp; item &gt; -2{
             instance_create(x,y,obj_mushroom_rise);
         }
-        if item = 2{
+        if item = 2 &amp;&amp; obj_player.item != 0{
             instance_create(x,y,obj_fireflower_rise);
         }
-        if item = 3{
+        if item = 3 &amp;&amp; obj_player.item != 0{
             instance_create(x,y,obj_lasflower_rise);
         }
-        if item &gt; 3 &amp;&amp; item &lt; 100{
+        if item &gt; 3 &amp;&amp; item &lt; 130{
             if global.skin = 0{
-                //instance_create(x,y,obj_amiiboshroom_rise)
-                //obj_amiiboshroom_rise.value = item-3;
+                amii = instance_create(x,y,obj_amiiboshroom_rise)
+                amii.value = item-3;
             } else {
                 instance_create(x,y,obj_coinrise);
             }
         }
-        if item = 100{
+        if item = 131{
             instance_create(x,y,obj_cappy_rise);
         }
-        if item = 101{
+        if item = 132 &amp;&amp; obj_player.item != 0{
             instance_create(x,y,obj_armorflower_rise);
         }
     } else {
@@ -211,7 +211,7 @@ hit = 2;
     breaking = 0;
 }
 
-if obj_play.inEditor = 1{
+/*if obj_play.inEditor = 1{
     if item = 0{
         image_index = 0;
     }
@@ -235,7 +235,7 @@ if obj_play.inEditor = 1{
     }
 } else {
     image_index = 0;
-}
+}*/
 
 
 //Selecting the skin

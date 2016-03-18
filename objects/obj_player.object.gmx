@@ -46,10 +46,15 @@ bcount = 0;
 deathY = 256;
 btime = 0;
 ztrans = 0;
+mounted = 0;
 shake = 0;
+mountJump = 0;
 bx = 0;
 shake = 0;
+rideX = 0;
+rideY = 0;
 face = 1;
+            bumpOff = 0;
         global.skin = 0;
 climbing = 0;
 hit = 0;
@@ -686,6 +691,63 @@ if global.skin = 1{
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Mounting
+if mounted = 1{
+    sprite_index = spr_mario_1_flag;
+    image_speed = 0;
+    
+    if keyboard_check_pressed(ord('X')){
+        if jumpnow = 0{
+            if keyboard_check(vk_up){
+                mounted = 0;
+                obj_mount_parent.ride = 0;
+                rideX = 0;
+                rideY = 0;
+                JumpY = 0;
+                bumpOff = 0;
+                visible = true;
+                //gravity = 0;
+            }
+        } else {
+            if mountJump = 0{
+                if keyboard_check(vk_up){
+                    mounted = 0;
+                    obj_mount_parent.ride = 0;
+                    vspeed = -5;
+                    mountJump = 1;
+                    obj_mount_parent.vspeed = 1;
+                    rideX = 0;
+                    rideY = 0;
+                    JumpY = 0;
+                    bumpOff = 0;
+                    visible = true;
+                    //gravity = 0;
+                }
+            }
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Following the editor camera
 if deadga = 1{
     if obj_play.inEditor = 1{
@@ -754,7 +816,7 @@ if canMove = 1{
 
 //Movement
 if climbing = 0{
-if (duck = 0 &amp;&amp; jumpnow = 0) || jumpnow = 1{
+if (duck = 0 &amp;&amp; jumpnow = 0) || jumpnow = 1 || jumpnow = 2{
 if global.skin != 4{
 if global.skin != 1{
 if dead = 0 &amp;&amp; deadba = 0{
@@ -946,18 +1008,31 @@ if keyboard_check(vk_left){
 }
 
 //Ducking
-if keyboard_check_pressed(vk_down){
+if keyboard_check(vk_down){
     if obj_play.inEditor = 0{
-        //if jumpnow = 0{
+        if jumpnow = 0{
             if (global.skin = 0 &amp;&amp; item != 0 &amp;&amp; item != 4) || global.skin != 0 || amiibo != 0{
                 duck = 1;
                 sprite_index = spr_bigmario_1_duck;
             }
-        //}
+        }
     }
-} if !keyboard_check(vk_down){
+} else {
     if jumpnow = 0{
         duck = 0;
+    }
+}
+
+if duck = 1{
+    if jumpnow = 0{
+        if global.skin = 0{
+            if hspeed &gt; 0{
+                hspeed -= 0.09/1.5;
+            }
+            if hspeed &lt; 0{
+                hspeed += 0.09/1.5;
+            }
+        }
     }
 }
 
@@ -1186,6 +1261,7 @@ if !instance_exists(obj_powerup){
                                     hspeed = 4;
                                 }
                             }
+                            
                         } else {
                             //vspeed = -7;
                         }
@@ -1289,24 +1365,30 @@ if global.skin != 3{
             if global.skin != 4{
                 if !collision_rectangle(x-7,y,x+7,y+17,obj_solidtop,false,false){// &amp;&amp; !collision_rectangle(x,y,x+8,y+17,obj_block_parent,false,false){
                     if !collision_rectangle(x-6,y+9,x+6,y+17,obj_block_parent,false,true){
-                        //Onion
-                        if onionGone = 0{
-                            onionGone = 1;
-                            alarm[5] = onionTime;
-                        }
-                        
-                        gravity = 0.16;
-                        if dead &lt; 1{
-                            if spinjump = 0{
-                                if duck = 0{
-                                    sprite_index = spr_mario_1_jump;
+                        if !collision_rectangle(x-6,y+4,x+6,y+9,obj_spring,false,true){
+                            //Onion
+                            if onionGone = 0{
+                                onionGone = 1;
+                                alarm[5] = onionTime;
+                            }
+                            
+                            gravity = 0.16;
+                            if dead &lt; 1{
+                                if spinjump = 0{
+                                    if duck = 0{
+                                        sprite_index = spr_mario_1_jump;
+                                    }
+                                } else {
+                                
+                                
+                                //Spinjump animation
                                 }
-                            } else {
-                            
-                            
-                            //Spinjump animation
-                            
-                            
+                            }
+                        } else {
+                            //Fix springs
+                            if vspeed &gt; 0{
+                                vspeed = 0;
+                                gravity = 0;
                             }
                         }
                     }
@@ -2231,7 +2313,7 @@ if global.skin = 1{
             if keyboard_check(ord('X')) and jumpnow = 1
             {
             vspeed += -0.5
-            if vspeed &lt; -3.8
+            if vspeed &lt; -4.6
             jumpnow = 2
             }
             if keyboard_check_released(ord('X')) and jumpnow = 1
@@ -2262,13 +2344,13 @@ if global.skin = 1{
             hspeed = hspeedmax
             if hspeed &lt; hspeedmax*-1
             hspeed = hspeedmax*-1
-            /*if collision_rectangle(x-8,y+16,x+8,y+18,obj_solidtop,1,1) and not vspeed &lt; 0
+            if collision_rectangle(x-8,y+16,x+8,y+18,obj_solidtop,1,1) and not vspeed &lt; 0
             {
             gravity = 0
-            vspeed = 0
-            }*/
+            //vspeed = 0
+            }
             else if state = 2
-            gravity = 0.25
+            //gravity = 0.25
             if hspeed &gt; 0
                 if collision_rectangle(x+hspeed+8,y-sizze+2-32,x+hspeed+8,y+29-32,obj_solid,1,1){
                 //hspeed = 0
@@ -2329,13 +2411,13 @@ if global.skin = 1{
             vspeed = 1.5
             if hspeed &gt; 1
             hspeed = 1
-            if vspeed &lt; -1.5
-            vspeed = -1.5
+            //if vspeed &lt; -1.5
+            //vspeed = -1.5
             if hspeed &lt; -1
             hspeed = -1
             if keyboard_check_pressed(ord('X'))
             {
-            vspeed = -1.5
+            vspeed = -5 //-1.5
             sound_play(snd_jump_smw)
             jumpnow = 1
             state = 2
@@ -2364,7 +2446,7 @@ if global.skin = 1{
         }
         //Falling down
         if !collision_rectangle(x-7,y+18,x+7,y+18,obj_solidtop,false,false) &amp;&amp; !collision_rectangle(x-7,y+18,x+7,y+18,obj_block_parent,false,false){
-            gravity = 0.45; //0.25
+            gravity = 0.2; //0.25 / 0.45
             if vspeed &gt; 0{
 //                jumpnow = 2;
             }
@@ -2420,6 +2502,10 @@ if global.skin = 1{
         
         }
     }
+}
+
+if vspeed &gt; 0{
+    jumpnow = 2;
 }
 
 </string>
@@ -2723,6 +2809,11 @@ if amiibo = 64{
         sprite_index = spr_marth_fall;
     }
 }
+if amiibo = 89{
+    if vspeed &gt; 0{
+        sprite_index = spr_trio_fall;
+    }
+}
 
 //Posing
 if amiibo &gt; 0{
@@ -2789,6 +2880,7 @@ if global.skin != 0{
           <argument>
             <kind>1</kind>
             <string>///Collisions
+if mounted = 0{
 if dead = 0{
 
 if climbing = 0{
@@ -2868,6 +2960,7 @@ if instance_exists(obj_play){
 }
 
 }
+}
 
 </string>
           </argument>
@@ -2889,13 +2982,15 @@ if instance_exists(obj_play){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Freezing in the editor
+            <string>
+///Freezing in the editor
 if instance_exists(obj_play){
     if obj_play.inEditor = 1{
         vspeed = 0;
         gravity = 0;
         hspeed = 0;
         _xspeed = 0;
+        visible = true;
     }
 }
 
@@ -2971,6 +3066,7 @@ if instance_exists(obj_play){
     if obj_play.inEditor = 1{
         onionAlarm = 2;
         climbing = 0;
+        mounted = 0;
         image_speed = 0;
         image_xscale = 1;
         sprite_index = spr_mario_1_still;
@@ -3006,6 +3102,11 @@ if instance_exists(obj_play){
             }
             if keyboard_check(vk_down){
                 y += 30;
+            }
+        }
+        if mouse_x &gt; self.x-64 &amp;&amp; mouse_x &lt; self.x+64 &amp;&amp; mouse_y &gt; self.y-64 &amp;&amp; mouse_y &lt; self.y+64 &amp;&amp; keyboard_check(vk_shift) &amp;&amp; mouse_check_button(mb_right){
+            if (global.skin = 0 &amp;&amp; item != 0 &amp;&amp; item != 4) || global.skin != 0 || amiibo != 0{
+                sprite_index = spr_bigmario_1_duck;
             }
         }
     }
@@ -3081,37 +3182,51 @@ if hspeed &lt; 0 || _xspeed &lt; 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check(vk_up){
-    climbing = 1;
-    vspeed = -1.5;
-}
-if keyboard_check(vk_down){
-    climbing = 1;
-    vspeed = 1.5;
-}
-if keyboard_check_released(vk_up) || keyboard_check_released(vk_down){
-    vspeed = 0;
-}
-
-if climbing = 1{
-    gravity = 0;
-    hspeed = 0;
-    sprite_index = spr_mario_1_flag;
-    x = other.x;
-    jumpnow = 0;
-    if keyboard_check_pressed(ord('X')){
-        climbing = 0;
-        if keyboard_check(vk_left){
-            hspeed = -2;
-        } else if keyboard_check(vk_right){
-            hspeed = 2;
+            <string>if obj_play.inEditor = 0{
+    if dead = 0{
+        if mounted = 0{
+            if keyboard_check(vk_up){
+                climbing = 1;
+                if collision_point(x,y,obj_ladder,false,false){
+                    vspeed = -1.5;
+                } else {
+                    vspeed = 0;
+                }
+            }
+            if keyboard_check(vk_down){
+                climbing = 1;
+                if collision_point(x,y+16,obj_ladder,false,false){
+                    vspeed = 1.5;
+                } else {
+                    vspeed = 0;
+                }
+            }
+            if keyboard_check_released(vk_up) || keyboard_check_released(vk_down){
+                vspeed = 0;
+            }
+            
+            if climbing = 1{
+                gravity = 0;
+                hspeed = 0;
+                sprite_index = spr_mario_1_flag;
+                x = other.x;
+                jumpnow = 0;
+                if keyboard_check_pressed(ord('X')){
+                    climbing = 0;
+                    if keyboard_check(vk_left){
+                        hspeed = -2;
+                    } else if keyboard_check(vk_right){
+                        hspeed = 2;
+                    }
+                }
+                if keyboard_check_pressed(vk_left){
+                    image_xscale = 1;
+                }
+                if keyboard_check_pressed(vk_right){
+                    image_xscale = -1;
+                }
+            }
         }
-    }
-    if keyboard_check_pressed(vk_left){
-        image_xscale = 1;
-    }
-    if keyboard_check_pressed(vk_right){
-        image_xscale = -1;
     }
 }
 
@@ -3141,18 +3256,18 @@ if climbing = 1{
 with obj_shadow{
     instance_destroy();
 }
+
 obj_tileparent.shadow = 0;
 obj_solidplace.shadow = 0;
 
-
-if amiibo &gt; 0{
-    with instance_create(other.x,other.y,obj_amiibo_die){
-        amiibo = obj_player.amiibo;
-    }
-    amiibo = 0;
-}
-
 if obj_play.inEditor = 0{
+    if amiibo &gt; 0{
+        with instance_create(other.x,other.y,obj_amiibo_die){
+            amiibo = obj_player.amiibo;
+        }
+        amiibo = 0;
+    }
+    
     instance_create(x,y,obj_player_flag);
     obj_player_flag.item = self.item;
     instance_destroy();
@@ -3412,6 +3527,7 @@ if obj_play.inEditor = 0{
                                     
                                     jumpnow = 0;
                                     _yspeed = 0;
+                                    mountJump = 0;
                                     gravity = 0;
                                     
                                     if hspeed &gt; 0 || _xspeed &gt; 0{
@@ -3467,8 +3583,9 @@ if obj_play.inEditor = 0{
                             }
                             other.hit = 1;
                         }
-                        
                         vspeed = 0;
+                        jumpnow = 2;
+                        state = 2;
                     }
                 }
             }
@@ -3564,6 +3681,7 @@ if obj_play.inEditor = 0{
                         }
                         jumpnow = 0;
                         _yspeed = 0;
+                        mountJump = 0;
                         gravity = 0;
                         if instance_exists(obj_jr_copter){
                             with obj_jr_copter{
@@ -3608,20 +3726,22 @@ if obj_play.inEditor = 0{
             
         }
     } else {
-        if vspeed &lt; 0{
-            if item = 0 || item = 5{
-                y = other.y+18;
-            } else {
-                y = other.y+32;
-            }
-            
-            while collision_rectangle(bbox_left,bbox_top-1,bbox_right,bbox_top+1,obj_solid,1,0){
-                y++
+        if x &gt; other.x-20 &amp;&amp; x &lt; other.x+20{
+            if vspeed &lt; 0{
+                jumpnow = 1;
+                if item = 0 || item = 5{
+                    y = other.y+18;
+                } else {
+                    y = other.y+32;
+                }
+                
+                while collision_rectangle(bbox_left,bbox_top-1,bbox_right-1,bbox_top+1,obj_solid,1,0){
+                    y++
+                    vspeed = 1;
+                    jumphit = 1;
+                }
                 vspeed = 1;
-                jumphit = 1;
             }
-            
-            vspeed = 1;
         }
     }
 }
@@ -3660,6 +3780,7 @@ if dead = 0{
             if jumpnow = 2
             jumpnow = 0
             hitpoint = 0
+            mountJump = 0;
         }
     }
 }
@@ -3791,7 +3912,7 @@ with instance_create(x,y,obj_shadow){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>draw_sprite_ext(sprite_index,image_index,x-rideX,y-rideY+bumpOff,image_xscale,image_yscale,image_angle,c_white,image_alpha);
 
 if select = 1{
     if image_xscale != -1{
@@ -3804,7 +3925,7 @@ if select = 1{
         draw_rectangle(x-8+16,y-7+8,(x+image_xscale*16)-10+16,y+image_yscale*16-9+8,true);
     }
 }
-
+ 
 </string>
           </argument>
         </arguments>

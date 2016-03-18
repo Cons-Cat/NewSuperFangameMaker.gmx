@@ -3,7 +3,7 @@
   <spriteName>spr_smb1_brick</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>obj_block_parent</parentName>
   <maskName>obj_itemblock_mask</maskName>

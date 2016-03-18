@@ -85,6 +85,42 @@ if instance_exists(obj_player){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Deactivate outside view
+instance_deactivate_all(true)
+//instance_activate_region(view_xview[2],view_yview[2],view_xview[2]+320,view_yview[2]+240,true);
+instance_activate_region(obj_camera.x-240,16,obj_camera.x+240,288,true);
+instance_activate_region(view_xview[1],view_yview[1],view_xview[1]+480,view_yview[1]+640,true);
+instance_activate_region(0,0,room_width,16,true);
+instance_activate_region(0,288,room_width,288+16,true);
+instance_activate_object(obj_play);
+instance_activate_object(obj_flag);
+instance_activate_object(obj_flagpole);
+instance_activate_object(obj_flagtile);
+instance_activate_object(obj_player);
+instance_activate_object(obj_gui_tile);
+instance_activate_object(obj_savetile);
+instance_activate_object(obj_theme);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

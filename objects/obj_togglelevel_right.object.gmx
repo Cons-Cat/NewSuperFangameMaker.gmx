@@ -127,6 +127,10 @@ if level = 0{
             instance = obj_ladder;
             startx = 341;
         }
+        with instance_create(3464,11,obj_gui_tile){
+            instance = obj_spring;
+            startx = 364;
+        }
         //instance_create(304,11,obj_billcannon_gui);
         //instance_create(344,11,obj_billcannon_gui);
     }
@@ -238,7 +242,7 @@ if level = 2{
         instance_create(400,16,obj_savelevel);
         instance_create(432,16,obj_leavegame);
         
-        obj_togglelevel_left.image_index = 0;
+        obj_togglelevel_left.image_index = 1;
         with instance_create(101,11,obj_gui_tile){
             instance = obj_mushroom_tile;
         }
@@ -297,12 +301,17 @@ if level = 3{
         }
         with instance_create(147,11,obj_gui_tile){
             instance = obj_peachbowser;
+        }
+        with instance_create(295,11,obj_gui_tile){
+            instance = obj_yoshi;
+            startx = 295;
+        }
+        with instance_create(364,11,obj_gui_tile){
+            instance = obj_sv;
+            startx = 364;
         }/*
         with instance_create(170,11,obj_gui_tile){
             instance = obj_cappy;
-        }
-        with instance_create(295,11,obj_gui_tile){
-            instance = obj_armorflower;
         }
         with instance_create(364,11,obj_gui_tile){
             instance = obj_amiiboshroom;

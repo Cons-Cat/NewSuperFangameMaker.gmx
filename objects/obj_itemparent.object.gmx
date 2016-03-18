@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_superparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -40,6 +40,11 @@ if obj_play.inEditor = 0{
 } else {
     select = 1;
 }
+baseDepth = depth;
+selOff = 0;
+released = 0;
+valFix = 4;
+col = make_color_rgb(247,205,57);
 
 //Image speed
 image_speed = 0;
@@ -131,22 +136,26 @@ if instance_exists(obj_play){
         if !collision_point(x,y+9,obj_solidtop,true,false) &amp;&amp; !collision_point(x,y+9,obj_block_parent,true,false){
             gravity = 0.16;
         } else {
-            vspeed = 0;
-            gravity = 0;
-            if billFire = 2{
-                billFire = 0;
-                if mushroom = 0{
-                    hspeed = 0;
-                } else {
-                    if hspeed &lt; 0{
-                        hspeed = -0.35;
+            if collision_point(x,y+9,obj_block_parent,true,false).vspeed &gt;= 0{
+                vspeed = 0;
+                gravity = 0;
+                if billFire = 2{
+                    billFire = 0;
+                    if mushroom = 0{
+                        hspeed = 0;
                     } else {
-                        hspeed = 0.35;
+                        if hspeed &lt; 0{
+                            hspeed = -0.35;
+                        } else {
+                            hspeed = 0.35;
+                        }
                     }
                 }
+            } else {
+                vspeed = -2.4;
             }
         }
-        
+            
         //Terminal velocity
         if vspeed &gt; 2{
             vspeed = 2;
@@ -178,9 +187,18 @@ if instance_exists(obj_play){
 }
 
 //Dragging
-if select = 1{    
-    x = ((mouse_x div 16)*16)+8;
-    y = ((mouse_y div 16)*16)+8;
+if select = 1{
+    if released = 0{
+        x = ((mouse_x div 16)*16)+8;
+        y = ((mouse_y div 16)*16)+8;
+    } else {
+        x = mouse_x+8;
+        y = mouse_y-8;
+    }
+    depth = -1000;
+} else {
+    selOff = 0;
+    depth = baseDepth;
 }
 
 //Collected
@@ -390,11 +408,16 @@ if y &lt; other.y{
           <argument>
             <kind>1</kind>
             <string>if select = 1{
+    x = ((mouse_x div 16)*16)+8;
+    y = ((mouse_y div 16)*16)+8;
+    
     xSet = x;
     ySet = y;
     select = 0;
     global.selected = 0;
 }
+
+released = 1;
 
 </string>
           </argument>
@@ -474,6 +497,38 @@ global.selected = 1;
         instance_destroy();
     }
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white);
+if select = 1{
+    draw_set_color(col);
+    draw_set_alpha(0.75);
+    draw_rectangle(  ((mouse_x div 16)*16),((mouse_y div 16)*16),((mouse_x div 16)*16)+15,((mouse_y div 16)*16)+15,false)
+    draw_set_alpha(1);
+}
+
+draw_self();
 
 </string>
           </argument>

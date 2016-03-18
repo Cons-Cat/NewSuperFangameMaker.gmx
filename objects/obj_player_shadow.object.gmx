@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>4</depth>
+  <depth>100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,7 +29,7 @@
 d3d_set_fog(true,c_black,0,0);
 draw_set_alpha(0.5);
 if instance_exists(obj_player){
-    draw_sprite_ext(obj_player.sprite_index,obj_player.image_index,obj_player.x+3,obj_player.y+3,obj_player.image_xscale,obj_player.image_yscale,obj_player.image_angle,c_white,0.5);
+    draw_sprite_ext(obj_player.sprite_index,obj_player.image_index,obj_player.x+3-obj_player.rideX,obj_player.y+3-obj_player.rideY+obj_player.bumpOff,obj_player.image_xscale,obj_player.image_yscale,obj_player.image_angle,c_white,0.5);
 }
 draw_set_alpha(1);
 d3d_set_fog(false,c_black,0,0);

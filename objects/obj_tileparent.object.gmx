@@ -37,7 +37,6 @@ coin = 0;
 cusH = 0;
 cusY = 0;
 pth = 0;
-col = make_color_rgb(247,205,57);
 saving = 0;
 alarm[11] = 8;
 
@@ -47,6 +46,20 @@ wyn.target = self.id;
 if object_index = obj_cointile{
     wyn.tarCoin = 1;
 }
+
+//Selecting
+if object_index != obj_flagtile{
+    x = ((mouse_x div 16)*16)+8;
+    y = ((mouse_y div 16)*16)+8;
+    released = 0;
+} else {
+    released = 1;
+}
+
+baseDepth = depth;
+selOff = 0;
+valFix = 4;
+col = make_color_rgb(247,205,57);
 
 </string>
           </argument>
@@ -154,16 +167,21 @@ if bcount = 6{
           <argument>
             <kind>1</kind>
             <string>if select = 1{
-
-if select = 0 {
-   shake = 0;
-   bcount = 0;
-   btime = 0;
-}
-
-x = ((mouse_x div 16)*16)+8;
-y = ((mouse_y div 16)*16)+8;
-
+    selOff = 3;
+    
+    if released = 0{
+        x = ((mouse_x div 16)*16)+8;
+        y = ((mouse_y div 16)*16)+8;
+        select = 0;
+    } else {
+        x = mouse_x//+8;
+        y = mouse_y//-8;
+        global.selected = 1;
+    }
+    depth = -1000;
+} else {
+    selOff = 0;
+    depth = baseDepth;
 }
 
 if btime = 0{
@@ -180,21 +198,6 @@ if !instance_exists(obj_powerup) {
     cusH = hspeed;
     cusY = vspeed;
 }
-
-//Pitch modulation
-//pth = audio_sound_pitch(mus_smb1,1);
-
-//Saving
-/*if obj_savelevel.saving = 1{
-    if saving = 0{
-        ini_open('level1.ini');
-        saving = 1;
-        ini_write_real(x,y,object_index);
-    }
-} else {
-    ini_close();
-}
-*/
 
 if object_index != obj_flagtile{
     if select = 0{
@@ -219,6 +222,15 @@ if instance_exists(obj_play){
         select = 0;
     }
 }
+
+/*if mouse_x &gt; self.x-8 &amp;&amp; mouse_x &lt; self.x+8{
+    if mouse_y &gt; self.y-8 &amp;&amp; mouse_y &lt; self.y+8{
+        if mouse_check_button(mb_left){
+            select = 1;
+            //show_message(select);
+        }
+    }
+}*/
 
 </string>
           </argument>
@@ -246,8 +258,13 @@ if instance_exists(obj_play){
 //    audio_sound_pitch(sound,pth);
     //audio_sound_pitch(sound,pitch)
     audio_play_sound(sound,0,false);
+    x = ((mouse_x div 16)*16)+8;
+    y = ((mouse_y div 16)*16)+8;
+    select = 0;
 }
-select = 0;
+
+released = 1;
+global.selected = 0;
 
 </string>
           </argument>
@@ -298,10 +315,11 @@ select = 0;
           <argument>
             <kind>1</kind>
             <string>if obj_shiftsel_ind.asdf = 0{
-    select = 1;
-    global.selected = 0;
-
+    //global.selected = 1;
+//    x = ((mouse_x div 16)*16)+8;
+//    y = ((mouse_y div 16)*16)+8;
 }
+select = 1;
 
 </string>
           </argument>
@@ -353,11 +371,15 @@ select = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-
-draw_set_color(c_white);
+            <string>draw_set_color(c_white);
 if select = 1{
-    if image_xscale != -1{
+    draw_set_color(col);
+    draw_set_alpha(0.75);
+    draw_rectangle(  ((mouse_x div 16)*16)+1,((mouse_y div 16)*16)+1,((mouse_x div 16)*16)+14,((mouse_y div 16)*16)+14,false)
+//    x = ((mouse_x div 16)*16)+8;
+//    y = ((mouse_y div 16)*16)+8;
+    draw_set_alpha(1);
+    /*if image_xscale != -1{
         if coin = 0{
             draw_set_color(col);
             draw_rectangle(x-9,y-8,(x+image_xscale*16)-9,y+image_yscale*16-8,true);
@@ -372,8 +394,16 @@ if select = 1{
         draw_set_color(col);
         draw_rectangle(x-9+16,y-8,(x+image_xscale*16)-9+16,y+image_yscale*16-8,true);
         draw_rectangle(x-8+16,y-7,(x+image_xscale*16)-10+16,y+image_yscale*16-9,true);
-    }
+    }*/
 }
+
+//draw_sprite(sprite_index,image_index,x+selOff,y-selOff);
+draw_self();
+
+/*draw_text(x,y,select);
+draw_text(x,y+12,released);
+draw_text(x,y+24,selOff);
+*/
 
 </string>
           </argument>

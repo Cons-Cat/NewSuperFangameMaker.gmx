@@ -476,7 +476,14 @@
         <sprite>sprites\spr_smb1_flagbase</sprite>
         <sprite>sprites\spr_smb1_aura</sprite>
         <sprite>sprites\spr_smb1_vine</sprite>
+        <sprite>sprites\spr_smb1_spring</sprite>
         <sprite>sprites\spr_smb1_ladder</sprite>
+        <sprites name="Mounts">
+          <sprite>sprites\spr_smb1_yoshistill</sprite>
+          <sprite>sprites\spr_smb1_yoshigui</sprite>
+          <sprite>sprites\spr_smb1_yoshiwalk</sprite>
+          <sprite>sprites\spr_smb1_yoshijump</sprite>
+        </sprites>
         <sprites name="Enemies">
           <sprite>sprites\spr_smb1_goomba</sprite>
           <sprite>sprites\spr_smb1_gooma_underground</sprite>
@@ -504,6 +511,7 @@
       </sprites>
       <sprites name="Hello Engine">
         <sprite>sprites\spr_hell_tile</sprite>
+        <sprite>sprites\spr_hell_tile_underground</sprite>
         <sprite>sprites\spr_hell_brickbreak</sprite>
         <sprite>sprites\spr_hell_brick</sprite>
         <sprite>sprites\spr_hell_itemblock</sprite>
@@ -547,6 +555,16 @@
         <sprite>sprites\spr_hell_bullettower_mid</sprite>
         <sprite>sprites\spr_hell_bullettower</sprite>
         <sprite>sprites\spr_hell_ladder</sprite>
+        <sprites name="Mounts">
+          <sprite>sprites\spr_hell_yoshistill</sprite>
+          <sprite>sprites\spr_hell_yoshiwalk</sprite>
+          <sprite>sprites\spr_hell_yoshijump</sprite>
+          <sprite>sprites\spr_hell_tankstill</sprite>
+          <sprite>sprites\spr_hell_tankwalk</sprite>
+          <sprite>sprites\spr_hell_tankjump</sprite>
+          <sprite>sprites\spr_hell_tankcannon</sprite>
+          <sprite>sprites\spr_hell_tankshot</sprite>
+        </sprites>
       </sprites>
       <sprites name="Nova">
         <sprite>sprites\spr_nova_tile</sprite>
@@ -1655,6 +1673,7 @@
       <object>objects\obj_title_initialize</object>
     </objects>
     <objects name="Tiles">
+      <object>objects\obj_superparent</object>
       <object>objects\obj_tileparent</object>
       <object>objects\obj_brickbreak</object>
       <object>objects\obj_bricktile</object>
@@ -1687,6 +1706,14 @@
       <object>objects\obj_ladder</object>
       <object>objects\obj_vine</object>
       <object>objects\obj_vine_rise</object>
+      <object>objects\obj_spring</object>
+      <objects name="Mounts">
+        <object>objects\obj_mount_parent</object>
+        <object>objects\obj_yoshi</object>
+        <object>objects\obj_sv</object>
+        <object>objects\obj_sv_shot</object>
+        <object>objects\obj_sv_cannon</object>
+      </objects>
       <objects name="New Enemies">
         <object>objects\obj_enemy_rise</object>
         <object>objects\obj_enemy</object>
@@ -2015,8 +2042,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_remixtitle</room>
     <room>rooms\room_levelcreator</room>
+    <room>rooms\room_remixtitle</room>
     <room>rooms\room_initGame</room>
     <room>rooms\room_levelselect</room>
     <room>rooms\room_titlescreen</room>

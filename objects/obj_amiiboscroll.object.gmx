@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>select = 0;
-x+=32;
+//x+=32;
 prop = 15;
+x = 100;
+y = 90;
 
 </string>
           </argument>
@@ -55,17 +57,18 @@ prop = 15;
     y = mouse_y;
 }
 
-if y &lt; 89{
-    y = 89;
+if y &lt; 88{
+    y = 88;
 }
-if y &gt; 224{
+/*if y &gt; 224{
     y = 224;
-}
+}*/
 
 if !instance_exists(obj_amiibobox){
     instance_destroy();
 } else {
-    x = obj_amiiboselect.x+369;
+//    x = obj_amiiboselect.x+369;
+    x = 369;
 }
 
 //obj_amiibocamera.y = (y+320-89);

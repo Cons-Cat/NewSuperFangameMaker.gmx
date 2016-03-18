@@ -3,7 +3,7 @@
   <spriteName>spr_smb1_tile</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>obj_shadowgrab</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -103,7 +103,15 @@ if global.skin = 0 || global.skin = 3{
     }
 }
 if global.skin = 1{
-    spr = spr_hell_tile;
+    if global.theme = 0{
+        spr = spr_hell_tile;
+    }
+    if global.theme = 1{
+        spr = spr_hell_tile_underground;
+    }
+    if global.theme = 2{
+        spr = spr_smb1_tile_snow;
+    }
 }
 if global.skin = 2{
     spr = spr_nova_tile;

@@ -35,6 +35,7 @@ ax = 0;
 playVar = 0;
 
 select = 0;
+selSTOP = 0;
 
 gone = 0;
 
@@ -239,6 +240,12 @@ if obj_play.inEditor = 1{
     if instance = obj_peachbowser{
         sprite_index = spr_smb1_peachbowsergui;
     }
+    if instance = obj_yoshi{
+        sprite_index = spr_smb1_yoshigui;
+    }
+    if instance = obj_spring{
+        sprite_index = spr_smb1_spring;
+    }
     
     spriteVal = sprite_index;
 } else {
@@ -257,6 +264,10 @@ if obj_play.inEditor = 1{
             y += 8;
         }
         if instance = obj_ladder{
+            y += 8;
+            altDrag = 1;
+        }
+        if instance = obj_spring{
             y += 8;
             altDrag = 1;
         }
@@ -302,6 +313,16 @@ if obj_play.inEditor = 1{
             altDrag = 1;
         }
         if instance = obj_newkoopa{
+            yFloor -= 8;
+            offset = 8;
+            altDrag = 1;
+        }
+        if instance = obj_yoshi{
+            yFloor -= 8;
+            offset = 8;
+            altDrag = 1;
+        }
+        if instance = obj_sv{
             yFloor -= 8;
             offset = 8;
             altDrag = 1;
@@ -407,10 +428,10 @@ if y &gt; yFloor+8{
     
 }
 
-if select = 1{
+/*if select = 1{
     obj_tileparent.select = 0;
     notSelect = 1;
-}
+}*/
 
 /*if select = 0{
     if notSelect = 1{
@@ -501,7 +522,7 @@ if instance = obj_amiiboshroom{
         }
     }
 }
-    
+
 </string>
           </argument>
         </arguments>
@@ -531,14 +552,14 @@ if mouse_x &lt; view_xview[2]+480-81
 //if mouse_y &lt; view_yview[2]+128*2+7-41{
 //if mouse_x &gt; view_xview[2]+(128+69)*2+10+4+sprite_width-4{
 //if {
-    if canPlace = 0{
+    //if canPlace = 0{
         if obj_play.inEditor = 1{
             if select = 1{
                 if mouse_y &gt; 37{
                     if mouse_y &lt; 280-8{
                         //if position_empty(mouse_x,mouse_y){
                             if altDrag = 0{
-                                if !collision_point(mouse_x,mouse_y,obj_solidplace_new,true,false){
+                                if !collision_point(mouse_x,mouse_y,obj_superparent,true,false){
                                 //if position_empty(mouse_x,mouse_y){
                                     if instance != obj_amiiboshroom{
                                         if instance = obj_solidplace_new{
@@ -555,16 +576,16 @@ if mouse_x &lt; view_xview[2]+480-81
                                 }
                             }
                             //if position_empty(((mouse_x div 16)*16)+8,((mouse_y div 16)*16)){
-                            if !collision_point(mouse_x,mouse_y,instance,true,false){
+                            if !collision_point(mouse_x,mouse_y,obj_superparent,true,true){
                                 //if !collision_point(mouse_x,mouse_y,instance,false,false){
                                     if instance != obj_amiiboshroom{
                                         if instance != obj_solidplace_new{
                                             with instance_create(mouse_x,mouse_y,instance){
                                                 x = ((mouse_x div 16)*16)+8;
                                                 y = ((mouse_y div 16)*16)+8;
-                                                canPlace = 1;
-                                                alarm[2] = 5;
                                             }
+                                            canPlace = 1;
+                                            alarm[2] = 5;
                                         }
                                     //}
                                 }
@@ -572,7 +593,7 @@ if mouse_x &lt; view_xview[2]+480-81
                         //}
                         } else if sick = 0{
                             sick = 1;
-                            if !collision_point(mouse_x,mouse_y,instance,false,false){
+                            if !collision_point(mouse_x,mouse_y,obj_superparent,false,false){
                                 if instance != obj_amiiboshroom{
                                     with instance_create(mouse_x,mouse_y,instance){
                                         x = ((mouse_x div 16)*16)+8;
@@ -585,7 +606,7 @@ if mouse_x &lt; view_xview[2]+480-81
                 }
             }
         }
-    }
+    //}
 }
 }
 }

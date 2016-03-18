@@ -83,6 +83,7 @@ if obj_play.inEditor = 1{
             <string>if obj_play.inEditor = 1{
     if gonea = 0{
         gonea = 1;
+        onionTime /= instance_number(obj_onion)/20;
         alarm[0] = onionTime;
     } else if gonea = 2{
         if obj_onionchange.image_index = 0{

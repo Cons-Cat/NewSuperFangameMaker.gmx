@@ -3,10 +3,10 @@
   <spriteName>spr_smb1_coin_tile</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>obj_tileparent</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_solidtop</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -169,6 +169,11 @@ if global.skin = 4{
 
 if collect = 0{
     visible = true;
+}
+
+if obj_play.inEditor = 1{
+    visible = true;
+    collect = 0;
 }
 
 </string>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_superparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Parent of all enemies
+
+x = ((mouse_x div 16)*16)+8;
+y = ((mouse_y div 16)*16)+8;
 
 //How vulnerable is this enemy to various items?
     //Fireballs
@@ -53,9 +56,15 @@ ySet = y;
 
 //If the enemy is being dragged
 select = 1;
+baseDepth = depth;
+selOff = 0;
+released = 0;
+valFix = 4;
+col = make_color_rgb(247,205,57);
 
 //How the enemy dies
 dead = 0;
+fallY = 0;
 
 //If you can delete the object
 destroyable = 0;
@@ -125,7 +134,9 @@ bossJump = 0;
           <argument>
             <kind>1</kind>
             <string>///Boss Jumping
-vspeed = -1.8;
+if obj_play.inEditor = 0{
+    vspeed = -5.2;
+}
 bossJump = 0;
 
 </string>
@@ -152,7 +163,7 @@ bossJump = 0;
             <kind>1</kind>
             <string>///Boss changing direction
 shootLoop = 0;
-if collision_point(x,y+19,obj_solidtop,true,false){
+if collision_point(x,y+9,obj_solidtop,true,false){
     bossDir = choose(0,0,1);
 }
 
@@ -397,6 +408,13 @@ if instance_exists(obj_play){
                     if !collision_point(x,y+9,obj_block_parent,true,false){
                         gravity = 0.16;
                     }
+                    if !collision_point(x,y+9,obj_spring,true,false){
+                        gravity = 0.16;
+                    } else {
+                        if vspeed &gt; 0{
+                            vspeed = 0;
+                        }
+                    }
                     //Terminal velocity
                     if vspeed &gt; 2{
                         vspeed = 2;
@@ -420,7 +438,7 @@ if instance_exists(obj_play){
             } else {
                 if boss = 1{
                     //Bowser code
-                    if bossMove != 0{
+//                    if bossMove != 0{
                         //Stepping around
                         if obj_player.x &gt; self.x{
                             if bossDir = 0{
@@ -464,21 +482,52 @@ if instance_exists(obj_play){
                         //Jumping
                         if bossJump = 0{
                             bossJump = 1;
-                            alarm[7] = 120;
+                            alarm[7] = 220;
                         }
                         
                         //Gravity
                         if !collision_point(x,y+17,obj_solidtop,true,false){
-                            gravity = 0.32;
+                            gravity = 0.2;
                         }
                         if !collision_point(x,y+17,obj_block_parent,true,false){
-                            gravity = 0.32;
+                            gravity = 0.2;
+                        }
+                        if !collision_point(x,y+17,obj_spring,true,false){
+                            gravity = 0.2;
                         }
                         //Terminal velocity
                         if vspeed &gt; 2{
                             vspeed = 2;
                         }
-                    }
+                        
+                        //Side collisions
+                        if collision_rectangle(x-16,y-24,x,y,obj_solid,true,false){ //Towards the player
+                            if bossDir = 0{
+                                hspeed = 0;
+                            }
+                        }
+                        if bossDir = 1{
+                            if collision_rectangle(x+16,y-24,x,y,obj_solid,true,false){ //Away from the player
+                                hspeed = 0;
+                                x -= 1;
+                            }
+                        }
+                        if collision_rectangle(x+16,y-24,x,y,obj_solid,true,false){
+                            if bossDir = 0{
+                                hspeed = 0;
+                            }
+                        }
+                        if bossDir = 1{
+                            if collision_rectangle(x-16,y-24,x,y,obj_solid,true,false){
+                                hspeed = 0;
+                                x += 1;
+                            }
+                        }
+                        
+                        //Top collisions
+                        if collision_rectangle(x-16,y-24,x+16,y,obj_solid,false,false){
+                            vspeed = 1;
+                        }
                 }
             }
             
@@ -504,30 +553,47 @@ if instance_exists(obj_play){
             }
     
             //Collisions
-            if collision_point(x-8,y,obj_solid,false,false){
-                //Change direction
-                direct = 1;
-            }
-            if collision_point(x-8,y,obj_block_parent,false,false){
-                //Change direction
-                direct = 1;
-            }
-            if collision_point(x+8,y,obj_solid,false,false){
-                //Change direction
-                direct = 0;
-            }
-            if collision_point(x+8,y,obj_block_parent,false,false){
-                //Change direction
-                direct = 0;
+            if boss = 0{
+                if collision_point(x-8,y,obj_solid,false,false){
+                    //Change direction
+                    direct = 1;
+                }
+                if collision_point(x-8,y,obj_block_parent,false,false){
+                    //Change direction
+                    direct = 1;
+                }
+                if collision_point(x+8,y,obj_solid,false,false){
+                    //Change direction
+                    direct = 0;
+                }
+                if collision_point(x+8,y,obj_block_parent,false,false){
+                    //Change direction
+                    direct = 0;
+                }
             }
         }
     }
 }
 
 //Dragging
-if select = 1{    
+/*if select = 1{    
     x = ((mouse_x div 16)*16)+8;
     y = ((mouse_y div 16)*16)+8;
+}*/
+
+if select = 1{
+    if released = 0{
+        x = ((mouse_x div 16)*16)+8;
+        y = ((mouse_y div 16)*16)+8;
+    } else {
+        x = mouse_x+8;
+        y = mouse_y-8;
+        global.selected = 1;
+    }
+    depth = -1000;
+} else {
+    selOff = 0;
+    depth = baseDepth;
 }
 
 //Dying
@@ -553,6 +619,13 @@ if dead = 2{
     hspeed = 0;
     vspeed = -2;
     dead = 3;
+    fallY = 1;
+}
+if fallY = 1{
+    if vspeed &gt; 0{
+        image_yscale = -1;
+    }
+    gravity = 0.23;
 }
 
 if dead = 4{
@@ -709,10 +782,19 @@ if boo = 0 &amp;&amp; bill = 0{
             <kind>1</kind>
             <string>//Floor collisions
 if boo = 0 &amp;&amp; bill = 0{
-    if y &lt; other.y-7{
-        vspeed = 0;
-        gravity = 0;
-        y = other.y-16;
+    if other.vspeed &gt;= 0{
+        if fallY = 0{
+            if y &lt; other.y-7{
+                vspeed = 0;
+                gravity = 0;
+                y = other.y-16;
+            }
+        }
+    } else {
+        if boss = 0{
+            dead = 2;
+            vspeed = -2.4;
+        }
     }
 }
 
@@ -747,6 +829,7 @@ if other.dead = 0{
                     if stomp = 0{
                         //Instant death
                         dead = 1;
+
                     }
                     if stomp = 2{
                         //Shell
@@ -754,10 +837,12 @@ if other.dead = 0{
                     }
                     
                     //Bouncing off of enemy
-                    if keyboard_check(ord('X')){
-                        obj_player.vspeed = -4.5;
-                    } else {
-                        obj_player.vspeed = -2;
+                    if boss = 0{
+                        if keyboard_check(ord('X')){
+                            obj_player.vspeed = -4.5;
+                        } else {
+                            obj_player.vspeed = -2;
+                        }
                     }
                 }
             }
@@ -790,7 +875,7 @@ if other.item != 6{
 
 if obj_play.inEditor = 0{
     if dead = 0 || (dead = 4 &amp;&amp; hspeed != 0 &amp;&amp; kickDeadly = 1){
-        if (other.y &gt;= self.y-8 &amp;&amp; boo = 0) || (boo = 1){
+        if (other.y &gt;= self.y-8 &amp;&amp; boo = 0) || (boo = 1) || boss = 1{
             //if other.item != 6 || other.hit = 2{
                 if obj_play.inEditor = 0{
                         if other.invinciblea = 0{
@@ -985,7 +1070,7 @@ if dead = 4{
           <argument>
             <kind>1</kind>
             <string>//Floor collisions
-if dead != 2{
+/*if dead != 2{
     if boo = 0 &amp;&amp; bill = 0{
         if y &lt; other.y{
             vspeed = 0;
@@ -994,6 +1079,28 @@ if dead != 2{
             if billFire = 2{
                 billFire = 0;
             }
+        }
+    }
+}*/
+
+//Floor collisions
+if boo = 0 &amp;&amp; bill = 0{
+    if other.vspeed &gt;= 0{
+        if fallY = 0{
+            if y &lt; other.y{
+                vspeed = 0;
+                gravity = 0;
+                y = other.y-8;
+                
+                if billFire = 2{
+                    billFire = 0;
+                }
+            }
+        }
+    } else {
+        if boss = 0{
+            dead = 2;
+            vspeed = -2.4;
         }
     }
 }
@@ -1021,11 +1128,16 @@ if dead != 2{
           <argument>
             <kind>1</kind>
             <string>if select = 1{
+    x = ((mouse_x div 16)*16)+8;
+    y = ((mouse_y div 16)*16)+8;
+    
     xSet = x;
     ySet = y;
     select = 0;
     global.selected = 0;
 }
+
+released = 1;
 
 </string>
           </argument>
@@ -1104,6 +1216,38 @@ if dead != 2{
         instance_destroy();
     }
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white);
+if select = 1{
+    draw_set_color(col);
+    draw_set_alpha(0.75);
+    draw_rectangle(  ((mouse_x div 16)*16),((mouse_y div 16)*16),((mouse_x div 16)*16)+15,((mouse_y div 16)*16)+15,false)
+    draw_set_alpha(1);
+}
+
+draw_self();
 
 </string>
           </argument>

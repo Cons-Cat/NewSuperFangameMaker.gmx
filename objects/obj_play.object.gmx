@@ -203,7 +203,7 @@ obj_leavegame.visible = true;
         obj_block_parent.visible = true;
         background_visible[0] = true;
         //view_object[2] = obj_camera;
-        obj_cointile.collect = 0;
+        //obj_cointile.collect = 0;
         obj_flagtile.asdfasasd = 0;
         obj_player.qwer = 0;
         invincible = 0;
@@ -571,7 +571,6 @@ if inEditor = 1{
     obj_flagtile.asdfasasd = 0;
     //view_object[2] = obj_camera;
     obj_enemyparent.deadly = 0;
-    obj_cointile.collect = 0;
     with obj_skinparent{
         instance_destroy();
     }
@@ -582,7 +581,7 @@ if inEditor = 1{
     obj_player.dead = 0;
     obj_player.deadga = 0;
     obj_player.deadba = 0
-    obj_cointile.collect = 0;
+    //obj_cointile.collect = 0;
     obj_player.vspeed = 0;
     obj_player.deadReset = 0;
     obj_player.gravity = 0;

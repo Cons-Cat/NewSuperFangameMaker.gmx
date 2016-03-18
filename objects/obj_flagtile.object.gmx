@@ -116,7 +116,16 @@ sound = snd_tilelow;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.skin = 0{
+            <string>draw_set_color(c_white);
+if select = 1{
+    draw_set_color(col);
+    draw_set_alpha(0.75);
+    draw_rectangle(  ((mouse_x div 16)*16),((mouse_y div 16)*16),((mouse_x div 16)*16)+15,((mouse_y div 16)*16)+15,false)
+    draw_set_alpha(1);
+}
+
+
+if global.skin = 0{
     draw_sprite(spr_smb1_flagbase,0,x,y);
     draw_sprite(spr_smb1_flagtop,0,x,y-(9*16));
     draw_sprite(spr_smb1_castle,0,x+(3*16)+8,y-(80-16));

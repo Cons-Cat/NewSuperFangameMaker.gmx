@@ -39,7 +39,8 @@ instance_create(47+(0),320+(120),obj_amiibobck);
 
 view_visible[5] = true;
 view_xport[5] = 419;
-view_yport[5] = 88;
+//view_yport[5] = 88;
+view_yport[5] = 100;
 
 obj_gui_tile.select = 0;
 image_speed = 0;
@@ -69,7 +70,7 @@ image_speed = 0;
             <string>x = view_xview[2]+startx;
 y = view_yview[2]+32;
 
-if keyboard_check_pressed(vk_enter){
+if keyboard_check_pressed(vk_escape){
     with obj_amiibo_parent{
         instance_destroy();
     }
@@ -85,124 +86,124 @@ if changeAmiibo = 0{
         with obj_amiibosel_parent{instance_destroy()}
         
         
-        with instance_create(x+50,y+84,obj_amiibo_modernmario){num = 0;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_goldmario){num = 1;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_silvermario){num = 2;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_drmario){num = 3;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_luigi){num = 4;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_peach){num = 5;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_toad){num = 6;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_bowser){num = 7;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_yoshi){num = 8;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_wario){num = 9;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_bowserjr){num = 2;numv = 1;}
+        with instance_create(100,100,obj_amiibo_modernmario){num = 0;numv = 0;}
+        with instance_create(100,100,obj_amiibo_goldmario){num = 1;numv = 0;}
+        with instance_create(100,100,obj_amiibo_silvermario){num = 2;numv = 0;}
+        with instance_create(100,100,obj_amiibo_drmario){num = 3;numv = 0;}
+        with instance_create(100,100,obj_amiibo_luigi){num = 4;numv = 0;}
+        with instance_create(100,100,obj_amiibo_peach){num = 5;numv = 0;}
+        with instance_create(100,100,obj_amiibo_toad){num = 6;numv = 0;}
+        with instance_create(100,100,obj_amiibo_bowser){num = 7;numv = 0;}
+        with instance_create(100,100,obj_amiibo_yoshi){num = 8;numv = 0;}
+        with instance_create(100,100,obj_amiibo_wario){num = 9;numv = 0;}
+        with instance_create(100,100,obj_amiibo_bowserjr){num = 2;numv = 1;}
         
-        with instance_create(x+50,y+84,obj_amiibo_inkgril){num = 3;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_inkboy){num = 4;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_inksquid){num = 5;numv = 4;}
+        with instance_create(100,100,obj_amiibo_inkgril){num = 3;numv = 4;}
+        with instance_create(100,100,obj_amiibo_inkboy){num = 4;numv = 4;}
+        with instance_create(100,100,obj_amiibo_inksquid){num = 5;numv = 4;}
         
-        with instance_create(x+50,y+84,obj_amiibo_yarng){num = 3;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_yarnb){num = 4;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_yarnp){num = 5;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_rosalina){num = 6;numv = 1;}
+        with instance_create(100,100,obj_amiibo_yarng){num = 3;numv = 1;}
+        with instance_create(100,100,obj_amiibo_yarnb){num = 4;numv = 1;}
+        with instance_create(100,100,obj_amiibo_yarnp){num = 5;numv = 1;}
+        with instance_create(100,100,obj_amiibo_rosalina){num = 6;numv = 1;}
         
-        with instance_create(x+50,y+84,obj_amiibo_kirby){num = 6;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_duckhunt){num = 5;numv = 8;}
+        with instance_create(100,100,obj_amiibo_kirby){num = 6;numv = 6;}
+        with instance_create(100,100,obj_amiibo_duckhunt){num = 5;numv = 8;}
         //with instance_create(x+50,y+84,obj_amiibo_pacman){num = 1;numv = 11;}
-        with instance_create(x+50,y+84,obj_amiibo_wiifit){num = 6;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_sonic){num = 0;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_ness){num = 9;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_lucas){num = 2;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_mac){num = 0;numv = 11;}
-        with instance_create(x+50,y+84,obj_amiibo_zss){num = 1;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_pit){num = 3;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_darkpit){num = 4;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_palutena){num = 5;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_link){num = 1;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_gw){num = 9;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_lucario){num = 0;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_lucario2){num = 1;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_greninja){num = 2;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_dedede){num = 8;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_metaknight){num = 7;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_megaman){num = 5;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_rob){num = 0;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_fox){num = 6;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_falco){num = 7;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_donkeykong){num = 1;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_diddykong){num = 2;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_samus){num = 0;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_goomba){num = 8;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_waluigi){num = 7;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_bmario){num = 1;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_octoling){num = 6;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_eliteoctoling){num = 7;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_mewtwo){num = 3;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_mlink){num = 2;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_charizard){num = 4;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_jigglypuff){num = 5;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_villager){num = 6;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_zelda){num = 3;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_sheik){num = 4;numv = 6;}
-        with instance_create(x+50,y+84,obj_amiibo_isabelle){num = 7;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_metalsonic){num = 1;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_shulk){num = 2;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_ryu){num = 3;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_olimar){num = 8;numv = 5;}
-        with instance_create(x+50,y+84,obj_amiibo_isabelle2){num = 8;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_callie){num = 8;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_marie){num = 9;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_spring){num = 0;numv = 4;}
-        with instance_create(x+50,y+84,obj_amiibo_captainfalcon){num = 9;numv = 7;}
-        with instance_create(x+50,y+84,obj_amiibo_marth){num = 4;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_walrus){num = 9;numv = 9;}
-        with instance_create(x+50,y+84,obj_amiibo_xp){num = 8;numv = 9;}
-        with instance_create(x+50,y+84,obj_amiibo_wiiu){num = 7;numv = 9;}
-        with instance_create(x+50,y+84,obj_amiibo_3ds){num = 6;numv = 9;}
-        with instance_create(x+50,y+84,obj_amiibo_dog){num = 5;numv = 9;}
+        with instance_create(100,100,obj_amiibo_wiifit){num = 6;numv = 8;}
+        with instance_create(100,100,obj_amiibo_sonic){num = 0;numv = 8;}
+        with instance_create(100,100,obj_amiibo_ness){num = 9;numv = 6;}
+        with instance_create(100,100,obj_amiibo_lucas){num = 2;numv = 5;}
+        with instance_create(100,100,obj_amiibo_mac){num = 0;numv = 11;}
+        with instance_create(100,100,obj_amiibo_zss){num = 1;numv = 5;}
+        with instance_create(100,100,obj_amiibo_pit){num = 3;numv = 5;}
+        with instance_create(100,100,obj_amiibo_darkpit){num = 4;numv = 5;}
+        with instance_create(100,100,obj_amiibo_palutena){num = 5;numv = 5;}
+        with instance_create(100,100,obj_amiibo_link){num = 1;numv = 6;}
+        with instance_create(100,100,obj_amiibo_gw){num = 9;numv = 5;}
+        with instance_create(100,100,obj_amiibo_lucario){num = 0;numv = 7;}
+        with instance_create(100,100,obj_amiibo_lucario2){num = 1;numv = 7;}
+        with instance_create(100,100,obj_amiibo_greninja){num = 2;numv = 7;}
+        with instance_create(100,100,obj_amiibo_dedede){num = 8;numv = 6;}
+        with instance_create(100,100,obj_amiibo_metaknight){num = 7;numv = 6;}
+        with instance_create(100,100,obj_amiibo_megaman){num = 5;numv = 6;}
+        with instance_create(100,100,obj_amiibo_rob){num = 0;numv = 6;}
+        with instance_create(100,100,obj_amiibo_fox){num = 6;numv = 5;}
+        with instance_create(100,100,obj_amiibo_falco){num = 7;numv = 5;}
+        with instance_create(100,100,obj_amiibo_donkeykong){num = 1;numv = 4;}
+        with instance_create(100,100,obj_amiibo_diddykong){num = 2;numv = 4;}
+        with instance_create(100,100,obj_amiibo_samus){num = 0;numv = 5;}
+        with instance_create(100,100,obj_amiibo_goomba){num = 8;numv = 1;}
+        with instance_create(100,100,obj_amiibo_waluigi){num = 7;numv = 1;}
+        with instance_create(100,100,obj_amiibo_bmario){num = 1;numv = 1;}
+        with instance_create(100,100,obj_amiibo_octoling){num = 6;numv = 4;}
+        with instance_create(100,100,obj_amiibo_eliteoctoling){num = 7;numv = 4;}
+        with instance_create(100,100,obj_amiibo_mewtwo){num = 3;numv = 7;}
+        with instance_create(100,100,obj_amiibo_mlink){num = 2;numv = 6;}
+        with instance_create(100,100,obj_amiibo_charizard){num = 4;numv = 7;}
+        with instance_create(100,100,obj_amiibo_jigglypuff){num = 5;numv = 7;}
+        with instance_create(100,100,obj_amiibo_villager){num = 6;numv = 7;}
+        with instance_create(100,100,obj_amiibo_zelda){num = 3;numv = 6;}
+        with instance_create(100,100,obj_amiibo_sheik){num = 4;numv = 6;}
+        with instance_create(100,100,obj_amiibo_isabelle){num = 7;numv = 7;}
+        with instance_create(100,100,obj_amiibo_metalsonic){num = 1;numv = 8;}
+        with instance_create(100,100,obj_amiibo_shulk){num = 2;numv = 8;}
+        with instance_create(100,100,obj_amiibo_ryu){num = 3;numv = 8;}
+        with instance_create(100,100,obj_amiibo_olimar){num = 8;numv = 5;}
+        with instance_create(100,100,obj_amiibo_isabelle2){num = 8;numv = 7;}
+        with instance_create(100,100,obj_amiibo_callie){num = 8;numv = 4;}
+        with instance_create(100,100,obj_amiibo_marie){num = 9;numv = 4;}
+        with instance_create(100,100,obj_amiibo_spring){num = 0;numv = 4;}
+        with instance_create(100,100,obj_amiibo_captainfalcon){num = 9;numv = 7;}
+        with instance_create(100,100,obj_amiibo_marth){num = 4;numv = 8;}
+        with instance_create(100,100,obj_amiibo_walrus){num = 9;numv = 9;}
+        with instance_create(100,100,obj_amiibo_xp){num = 8;numv = 9;}
+        with instance_create(100,100,obj_amiibo_wiiu){num = 7;numv = 9;}
+        with instance_create(100,100,obj_amiibo_3ds){num = 6;numv = 9;}
+        with instance_create(100,100,obj_amiibo_dog){num = 5;numv = 9;}
         
         
-        with instance_create(x+50,y+84,obj_amiibo_willsaber){num = 0;numv = 9;}
-        with instance_create(x+50,y+84,obj_amiibo_superyoshi){num = 8;numv = 8;}
-        with instance_create(x+50,y+84,obj_amiibo_roushi){num = 7;numv = 8;}
+        with instance_create(100,100,obj_amiibo_willsaber){num = 0;numv = 9;}
+        with instance_create(100,100,obj_amiibo_superyoshi){num = 8;numv = 8;}
+        with instance_create(100,100,obj_amiibo_roushi){num = 7;numv = 8;}
         
         
-        with instance_create(x+50,y+84,obj_amiibo_classicwario){num = 0;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_makermario){num = 9;numv = 1;}
-        with instance_create(x+50,y+84,obj_amiibo_papermario){num = 0;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_paperluigi){num = 1;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_mrl){num = 2;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_paperpeach){num = 3;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_paperbowser){num = 4;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_dreammario){num = 5;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_dreamluigi){num = 6;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_giantluigi){num = 7;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_mltrio){num = 8;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_goomp){num = 9;numv = 2;}
-        with instance_create(x+50,y+84,obj_amiibo_paraplonk){num = 0;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_searguy){num = 1;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_drybowser){num = 2;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_nabbit){num = 3;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_kingboo){num = 4;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_kingbobomb){num = 5;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_petey){num = 6;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_marioworld){num = 7;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_mercedesbig){num = 8;numv = 3;}
-        with instance_create(x+50,y+84,obj_amiibo_mercedessmall){num = 9;numv = 3;}
+        with instance_create(100,100,obj_amiibo_classicwario){num = 0;numv = 1;}
+        with instance_create(100,100,obj_amiibo_makermario){num = 9;numv = 1;}
+        with instance_create(100,100,obj_amiibo_papermario){num = 0;numv = 2;}
+        with instance_create(100,100,obj_amiibo_paperluigi){num = 1;numv = 2;}
+        with instance_create(100,100,obj_amiibo_mrl){num = 2;numv = 2;}
+        with instance_create(100,100,obj_amiibo_paperpeach){num = 3;numv = 2;}
+        with instance_create(100,100,obj_amiibo_paperbowser){num = 4;numv = 2;}
+        with instance_create(100,100,obj_amiibo_dreammario){num = 5;numv = 2;}
+        with instance_create(100,100,obj_amiibo_dreamluigi){num = 6;numv = 2;}
+        with instance_create(100,100,obj_amiibo_giantluigi){num = 7;numv = 2;}
+        with instance_create(100,100,obj_amiibo_mltrio){num = 8;numv = 2;}
+        with instance_create(100,100,obj_amiibo_goomp){num = 9;numv = 2;}
+        with instance_create(100,100,obj_amiibo_paraplonk){num = 0;numv = 3;}
+        with instance_create(100,100,obj_amiibo_searguy){num = 1;numv = 3;}
+        with instance_create(100,100,obj_amiibo_drybowser){num = 2;numv = 3;}
+        with instance_create(100,100,obj_amiibo_nabbit){num = 3;numv = 3;}
+        with instance_create(100,100,obj_amiibo_kingboo){num = 4;numv = 3;}
+        with instance_create(100,100,obj_amiibo_kingbobomb){num = 5;numv = 3;}
+        with instance_create(100,100,obj_amiibo_petey){num = 6;numv = 3;}
+        with instance_create(100,100,obj_amiibo_marioworld){num = 7;numv = 3;}
+        with instance_create(100,100,obj_amiibo_mercedesbig){num = 8;numv = 3;}
+        with instance_create(100,100,obj_amiibo_mercedessmall){num = 9;numv = 3;}
         //with instance_create(x+50,y+84,obj_amiibo_mercedesbig){num = 9;numv = 3;}
         changeAmiibo = 1;
     } else if obj_amiibo_style.style = 1{
         with obj_amiibosel_parent{instance_destroy()}
         
-        with instance_create(x+50,y+84,obj_amiibo_modernmariobit){num = 0;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_goldmariobit){num = 1;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_silvermariobit){num = 2;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_drmariobit){num = 3;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_luigibit){num = 4;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_peachbit){num = 5;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_toadbit){num = 6;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_bowserbit){num = 7;numv = 0;}
-        with instance_create(x+50,y+84,obj_amiibo_yoshibit){num = 8;numv = 0;}
+        with instance_create(100,100,obj_amiibo_modernmariobit){num = 0;numv = 0;}
+        with instance_create(100,100,obj_amiibo_goldmariobit){num = 1;numv = 0;}
+        with instance_create(100,100,obj_amiibo_silvermariobit){num = 2;numv = 0;}
+        with instance_create(100,100,obj_amiibo_drmariobit){num = 3;numv = 0;}
+        with instance_create(100,100,obj_amiibo_luigibit){num = 4;numv = 0;}
+        with instance_create(100,100,obj_amiibo_peachbit){num = 5;numv = 0;}
+        with instance_create(100,100,obj_amiibo_toadbit){num = 6;numv = 0;}
+        with instance_create(100,100,obj_amiibo_bowserbit){num = 7;numv = 0;}
+        with instance_create(100,100,obj_amiibo_yoshibit){num = 8;numv = 0;}
 //        with instance_create(x+50,y+84,obj_amiibo_bowserjr){num = 10;numv = 0;}
         /*
         instance_create(x+50,y+84,obj_amiibo_inkgril);

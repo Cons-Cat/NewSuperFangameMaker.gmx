@@ -32,7 +32,7 @@ if x &gt; view_xview[2]+480{
     instance_destroy();
 }*/
 
-if (x - obj_player.x &gt; (view_xview[2]-obj_player.x)*2 || x + obj_player.x &lt; -240){
+if (x - obj_player.x &gt; (view_xview[2]-obj_player.x)*2 || x + obj_player.x &lt; -240) || y &gt; 280{
     instance_destroy();
 }
 
