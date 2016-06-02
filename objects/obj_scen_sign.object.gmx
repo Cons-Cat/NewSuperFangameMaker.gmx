@@ -53,20 +53,30 @@ image_index = choose(0,1);
           <argument>
             <kind>1</kind>
             <string>if !collision_point(x,y+24,obj_solidplace_new,true,false){
-    instance_destroy();
+    if collision_point(x,y+24,obj_solidplace_new,true,false).select = 0{
+        instance_destroy();
+    }
 }
 if !collision_point(x+16,y+24,obj_solidplace_new,true,false){
-    instance_destroy();
+    if collision_point(x+16,y+24,obj_solidplace_new,true,false).select = 0{
+        instance_destroy();
+    }
 }
 if !collision_point(x+32,y+24,obj_solidplace_new,true,false){
-    instance_destroy();
+    if collision_point(x+32,y+24,obj_solidplace_new,true,false).select = 0{
+        instance_destroy();
+    }
 }
 if !collision_point(x+48,y+24,obj_solidplace_new,true,false){
-    instance_destroy();
+    if collision_point(x+48,y+24,obj_solidplace_new,true,false).select = 0{
+        instance_destroy();
+    }
 }
 
 if collision_rectangle(x,y-32,x+48,y+8,obj_solidplace_new,true,false){
-    instance_destroy();
+    if collision_rectangle(x,y-32,x+48,y+8,obj_solidplace_new,true,false).select = 0{
+        instance_destroy();
+    }
 }
 
 if global.theme = 1{
@@ -107,7 +117,9 @@ if global.skin = 1{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>if other.select = 0{
+    instance_destroy();
+}
 
 </string>
           </argument>

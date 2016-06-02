@@ -26,9 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>ver = 0;
+spr = spr_ingame_hud;
 verVal = 5;
 alarm[0] = 90;
 fall = 0;
+sprite_index = spr_inv;
 y = 320;
 
 vspeed = -6;
@@ -129,7 +131,7 @@ if obj_play.inEditor = 1{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index,image_index,0,y);
+            <string>draw_sprite(spr,image_index,0,y);
 
 </string>
           </argument>

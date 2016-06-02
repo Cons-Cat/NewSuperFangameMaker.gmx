@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_gui_tiles</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-200</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = 0;
+            <string>//image_alpha = 0;
+sprite_index = spr_inv;
 
 </string>
           </argument>
@@ -103,8 +104,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*//Draw a shadow
-d3d_set_fog(true,c_black,0,0);
+            <string>//Draw a shadow
+/*d3d_set_fog(true,c_black,0,0);
 draw_set_alpha(0.3);
 
 draw_sprite(spr_gui_tiles,image_index,456+3+8,132+3+8);

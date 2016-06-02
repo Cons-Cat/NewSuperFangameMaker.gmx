@@ -72,7 +72,7 @@ view_hview[1] = 320;
           <argument>
             <kind>1</kind>
             <string>x = view_xview[2]+26+45;
-y = 292-8;
+y = view_yview[2]+292-8;
 
 </string>
           </argument>

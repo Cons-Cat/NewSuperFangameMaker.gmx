@@ -30,9 +30,14 @@
         if obj_play.inEditor = 0{
             if global.skin != 4{
                 x = obj_player.x;
+                
+                if obj_player.dead = 0{
+                    y = obj_player.y;
+                }
+                
                 if obj_player.dead = 0{
                     //y = obj_player.y+16;
-                    y = 256-96;
+                    //y = 256-96;
                 }
             } else {
                 view_vborder[2] = 160;
@@ -44,7 +49,15 @@
             }
         } else {
             x = obj_player.x;
-            y = 256-96;
+            
+            if obj_player.y &lt; 528-48{
+                if obj_player.dead = 0{
+                    y = obj_player.y;
+                }
+            } else {
+                y = 528-48;
+            }
+            //y = 256-96;
             //view_yview[2] = 0;
     //        y = obj_player.y;
         }
@@ -56,8 +69,8 @@
     
     
     if obj_play.inEditor = 0{
-        if y &gt; 200{
-            y = 200;
+        if y &gt; 528-48{
+            y = 528-48;
         }
         
         if x &lt; 200{
@@ -102,11 +115,12 @@ if instance_exists(obj_player){
           <argument>
             <kind>1</kind>
             <string>///Deactivate outside view
+
 instance_deactivate_all(true)
 //instance_activate_region(view_xview[2],view_yview[2],view_xview[2]+320,view_yview[2]+240,true);
 instance_activate_region(obj_camera.x-240,16,obj_camera.x+240,288,true);
-instance_activate_region(view_xview[1],view_yview[1],view_xview[1]+480,view_yview[1]+640,true);
-instance_activate_region(0,0,room_width,16,true);
+instance_activate_region(view_xview[1],view_yview[2],view_xview[2]+480,view_yview[1]+640,true);
+instance_activate_region(0,view_yview[2],room_width,view_yview[2]+16,true);
 instance_activate_region(0,288,room_width,288+16,true);
 instance_activate_object(obj_play);
 instance_activate_object(obj_flag);
@@ -116,6 +130,11 @@ instance_activate_object(obj_player);
 instance_activate_object(obj_gui_tile);
 instance_activate_object(obj_savetile);
 instance_activate_object(obj_theme);
+instance_activate_object(obj_gui);
+instance_activate_object(obj_veg_check);
+instance_activate_object(obj_togglelevel_left);
+instance_activate_object(obj_togglelevel_right);
+instance_activate_object(obj_shiftsel_ind);
 
 </string>
           </argument>

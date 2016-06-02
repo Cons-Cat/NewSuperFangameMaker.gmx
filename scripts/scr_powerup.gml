@@ -2564,3 +2564,25 @@ if global.skin = 4{
     }
 }
 
+if global.skin = 6{
+    if item = 0{
+        if sprite_index = spr_mario_1_still{
+            sprite_index = spr_mario_redeem_still;
+        }
+        if sprite_index = spr_mario_1_walk{
+            sprite_index = spr_mario_redeem_walk;
+        }
+        if sprite_index = spr_mario_1_skid{
+            sprite_index = spr_mario_redeem_walk;
+        }
+        if sprite_index = spr_mario_1_jump{
+            if vspeed < 0{
+                sprite_index = spr_mario_redeem_jump;
+            }
+            if vspeed > 0{
+                sprite_index = spr_mario_redeem_fall;
+            }
+        }
+    }
+}
+

@@ -129,7 +129,7 @@ if stop = 2{
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>612</id>
@@ -174,15 +174,16 @@ if stop = 2{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.skin != 2{
-    audio_stop_music();
-    audio_play_music(mus_nova,true);
+            <string>if mouse_x &lt; view_xview[2]+79 &amp;&amp; mouse_y &lt; view_yview[2]+y+35 &amp;&amp; mouse_y &gt; view_yview[2]+y{
+    if global.skin != 1{
+        audio_stop_music();
+//        audio_play_music(mus_hello,true);
+    }
+    obj_skinparent.stop = 2;
+    global.skin = 6;
+    
+    obj_theme.offGo = 0;
 }
-
-obj_skinparent.stop = 2;
-global.skin = 2;
-
-obj_theme.offGo = 0;
 
 </string>
           </argument>

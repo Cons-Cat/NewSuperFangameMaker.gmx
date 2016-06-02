@@ -131,7 +131,7 @@ if obj_play.inEditor = 0{
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -148,10 +148,12 @@ if obj_play.inEditor = 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_togglelevel_right.level &gt; 0{
-    obj_togglelevel_right.level -= 1;
-    with obj_gui_tile{
-        instance_destroy();
+            <string>if mouse_x &gt;= self.x &amp;&amp; mouse_x &lt;= self.x+sprite_width &amp;&amp; mouse_y &gt;= view_yview[2]+self.y &amp;&amp; mouse_y &lt;= view_yview[2]+self.y+sprite_height{
+    if obj_togglelevel_right.level &gt; 0{
+        obj_togglelevel_right.level -= 1;
+        with obj_gui_tile{
+            instance_destroy();
+        }
     }
 }
 

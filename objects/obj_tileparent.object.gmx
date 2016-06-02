@@ -314,12 +314,7 @@ global.selected = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_shiftsel_ind.asdf = 0{
-    //global.selected = 1;
-//    x = ((mouse_x div 16)*16)+8;
-//    y = ((mouse_y div 16)*16)+8;
-}
-select = 1;
+            <string>select = 1;
 
 </string>
           </argument>

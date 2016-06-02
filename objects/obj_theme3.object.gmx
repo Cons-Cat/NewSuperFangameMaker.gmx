@@ -174,7 +174,7 @@ if stop = 2{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if mouse_x &lt; view_xview[2]+56 &amp;&amp; mouse_y &gt; y &amp;&amp; mouse_y &lt; y+36{
+            <string>if mouse_x &lt; view_xview[2]+56 &amp;&amp; mouse_y &gt; view_yview[2]+y &amp;&amp; mouse_y &lt; view_yview[2]+y+36{
     obj_skinparent.stop = 2;
     global.theme = 2;
     obj_theme.spr = spr_theme;

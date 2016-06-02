@@ -167,7 +167,7 @@ if obj_play.inEditor = 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if mouse_x &lt; view_xview[2]+56 &amp;&amp; mouse_y &gt; 37 &amp;&amp; mouse_y &lt; 37+36{
+            <string>if mouse_x &lt; view_xview[2]+56 &amp;&amp; mouse_y &gt; view_yview[2]+37 &amp;&amp; mouse_y &lt; view_yview[2]+37+36{
     if level &lt; 2{
     level += 1{
         if level = 1{

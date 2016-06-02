@@ -76,22 +76,27 @@ sprngInt = 7;
           <argument>
             <kind>1</kind>
             <string>if sprng = 1{
-   if trg.y+sprOff &lt; self.y-4{
-        trg.y += 5;
+    if trg.vspeed &gt;= 0 {
+       if trg.y+sprOff &lt; self.y-4{
+            trg.y += 5;
+        }
     }
 }
 if sprng = 2{
-    trg.y -= 5;
+    if trg.vspeed &gt;= 0 {
+        trg.y -= 5;
+    }
 }
 
 if sprng != 3{
-    alarm[1] = sprngInt;
+    if trg.vspeed &gt;= 0 {
+        alarm[1] = sprngInt;
+    }
 }
 
 if trg = obj_player{
     if obj_player.y &gt; self.y-6{
         obj_player.y = self.y-6;
-        show_message("a");
     }
 }
 
@@ -193,6 +198,17 @@ if global.skin = 4{
         image_speed = 0.15;
     }
 }*/
+
+//Gravity
+if obj_play.inEditor = 0{
+    if !collision_point(x,y+9,obj_solidtop,true,false) &amp;&amp; !collision_point(x,y+9,obj_block_parent,true,false) &amp;&amp; !collision_point(x,y+7,obj_spring,true,true){
+        gravity = 0.16;
+    } else {
+        vspeed = 0;
+        gravity = 0;
+    }
+}
+
 if obj_play.inEditor = 0{
     if sprng = 0{
         image_speed = 0;
@@ -369,8 +385,19 @@ if trg != 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_play.inEditor = 0{
-    trg = other.id;
+            <string>if other.vspeed &gt;= 0{
+    if other.y &lt; self.y{
+        if canSpring = 0{
+            if sprung = 0{
+                if obj_play.inEditor = 0{
+                    trg = other.id;
+                    sprung = 1;
+                    sprOff = 0;
+                    xPlace = other.x;
+                }
+            }
+        }
+    }
 }
 
 </string>

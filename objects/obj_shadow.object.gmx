@@ -130,6 +130,8 @@ if target != 0{
         }
         visible = target.visible;
     }
+} else {
+    visible = trg.visible;
 }
 
 </string>

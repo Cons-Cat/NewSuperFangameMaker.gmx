@@ -121,6 +121,8 @@
     <sprite>sprites\spr_splicer</sprite>
     <sprite>sprites\spr_title_hover</sprite>
     <sprite>sprites\spr_skin</sprite>
+    <sprite>sprites\spr_options</sprite>
+    <sprite>sprites\spr_buttonplacehold</sprite>
     <sprite>sprites\spr_theme</sprite>
     <sprites name="GUI Parts">
       <sprite>sprites\spr_gui</sprite>
@@ -211,6 +213,9 @@
           <sprite>sprites\spr_mario_hell_dead</sprite>
           <sprite>sprites\spr_mario_hell_spin</sprite>
           <sprite>sprites\spr_mario_hell_flag</sprite>
+          <sprite>sprites\spr_mario_hell_pull</sprite>
+          <sprite>sprites\spr_mario_hell_carry_still</sprite>
+          <sprite>sprites\spr_mario_hell_carry_walk</sprite>
         </sprites>
         <sprites name="Super">
           <sprite>sprites\spr_bigmario_hell_still</sprite>
@@ -411,6 +416,14 @@
           <sprite>sprites\spr_armmario_mg_flag</sprite>
         </sprites>
       </sprites>
+      <sprites name="Redeem">
+        <sprites name="Small">
+          <sprite>sprites\spr_mario_redeem_still</sprite>
+          <sprite>sprites\spr_mario_redeem_walk</sprite>
+          <sprite>sprites\spr_mario_redeem_jump</sprite>
+          <sprite>sprites\spr_mario_redeem_fall</sprite>
+        </sprites>
+      </sprites>
       <sprite>sprites\spr_mario_1_collisions</sprite>
       <sprite>sprites\spr_bigmario_1_collisions</sprite>
     </sprites>
@@ -449,6 +462,8 @@
         <sprite>sprites\spr_smb1_coin_snow</sprite>
         <sprite>sprites\spr_smb1_koopagui</sprite>
         <sprite>sprites\spr_smb1_kooparedgui</sprite>
+        <sprite>sprites\spr_smb1_koopalasgui</sprite>
+        <sprite>sprites\spr_smb1_drygui</sprite>
         <sprite>sprites\spr_smb1_thwompgui</sprite>
         <sprite>sprites\spr_bullettower</sprite>
         <sprite>sprites\spr_bullettower_underground</sprite>
@@ -486,15 +501,25 @@
         </sprites>
         <sprites name="Enemies">
           <sprite>sprites\spr_smb1_goomba</sprite>
+          <sprite>sprites\spr_smb1_goombalaser</sprite>
           <sprite>sprites\spr_smb1_gooma_underground</sprite>
           <sprite>sprites\spr_smb1_goombadead</sprite>
+          <sprite>sprites\spr_smb1_goombalaser_dead</sprite>
           <sprite>sprites\spr_smb1_koopa</sprite>
+          <sprite>sprites\spr_smb1_koopaspring</sprite>
           <sprite>sprites\spr_smb1_koopashell</sprite>
           <sprite>sprites\spr_smb1_koopared</sprite>
           <sprite>sprites\spr_smb1_kooparedshell</sprite>
           <sprite>sprites\spr_smb1_bootile</sprite>
+          <sprite>sprites\spr_smb1_boolaser</sprite>
           <sprite>sprites\spr_smb1_thwomp</sprite>
           <sprite>sprites\spr_smb1_spiny</sprite>
+          <sprite>sprites\spr_smb1_buzzy</sprite>
+          <sprite>sprites\spr_smb1_buzzyshell</sprite>
+          <sprite>sprites\spr_smb1_buzzyhelm</sprite>
+          <sprite>sprites\spr_smb1_drybones</sprite>
+          <sprite>sprites\spr_smb1_drybonesdie</sprite>
+          <sprite>sprites\spr_smb1_drybonespick</sprite>
         </sprites>
         <sprites name="Bosses">
           <sprite>sprites\spr_smb1_bowser</sprite>
@@ -512,6 +537,7 @@
       <sprites name="Hello Engine">
         <sprite>sprites\spr_hell_tile</sprite>
         <sprite>sprites\spr_hell_tile_underground</sprite>
+        <sprite>sprites\spr_hell_tile_snow</sprite>
         <sprite>sprites\spr_hell_brickbreak</sprite>
         <sprite>sprites\spr_hell_brick</sprite>
         <sprite>sprites\spr_hell_itemblock</sprite>
@@ -554,6 +580,7 @@
         <sprite>sprites\spr_hell_bullettower_top</sprite>
         <sprite>sprites\spr_hell_bullettower_mid</sprite>
         <sprite>sprites\spr_hell_bullettower</sprite>
+        <sprite>sprites\spr_hell_veg</sprite>
         <sprite>sprites\spr_hell_ladder</sprite>
         <sprites name="Mounts">
           <sprite>sprites\spr_hell_yoshistill</sprite>
@@ -564,6 +591,9 @@
           <sprite>sprites\spr_hell_tankjump</sprite>
           <sprite>sprites\spr_hell_tankcannon</sprite>
           <sprite>sprites\spr_hell_tankshot</sprite>
+        </sprites>
+        <sprites name="Veggies">
+          <sprite>sprites\spr_hell_radish</sprite>
         </sprites>
       </sprites>
       <sprites name="Nova">
@@ -679,6 +709,9 @@
         <sprite>sprites\spr_mg_castle</sprite>
         <sprite>sprites\spr_mg_flagblock</sprite>
         <sprite>sprites\spr_mg_aura</sprite>
+      </sprites>
+      <sprites name="Redemption">
+        <sprite>sprites\spr_redeem_tile</sprite>
       </sprites>
     </sprites>
     <sprites name="Title Screen">
@@ -1582,11 +1615,13 @@
     <background>background\bck_smb1_color</background>
     <background>background\bck_smb1_underground</background>
     <background>background\bck_smb1_snow</background>
+    <background>background\bck_redeem_color</background>
     <background>background\bck_smb1_alt</background>
     <background>background\bck_hell</background>
     <background>background\bck_hell_alt</background>
     <background>background\bck_hell_color</background>
     <background>background\bck_hell_underground</background>
+    <background>background\bck_hell_snow</background>
     <background>background\bck_nova</background>
     <background>background\bck_nova_alt</background>
     <background>background\bck_nova_color</background>
@@ -1621,8 +1656,10 @@
     <script>scripts\scr_wup.gml</script>
     <script>scripts\scr_enemy.gml</script>
     <script>scripts\scr_mix.gml</script>
+    <script>scripts\scr_guitile.gml</script>
   </scripts>
   <fonts name="fonts">
+    <font>fonts\fnt_debug</font>
     <font>fonts\fnt_amiibo</font>
   </fonts>
   <objects name="objects">
@@ -1650,6 +1687,8 @@
     <object>objects\obj_CRT</object>
     <object>objects\obj_title_init</object>
     <object>objects\obj_credits</object>
+    <object>objects\obj_helm_die</object>
+    <object>objects\obj_pu_handle</object>
     <object>objects\obj_blockitem</object>
     <objects name="Main Menu">
       <object>objects\obj_quest</object>
@@ -1718,10 +1757,16 @@
         <object>objects\obj_enemy_rise</object>
         <object>objects\obj_enemy</object>
         <object>objects\obj_newgoomba</object>
+        <object>objects\obj_newgoombalas</object>
         <object>objects\obj_newkoopa</object>
+        <object>objects\obj_newdrykoopa</object>
         <object>objects\obj_newkoopared</object>
+        <object>objects\obj_newkoopaspring</object>
         <object>objects\obj_bootile</object>
+        <object>objects\obj_newboolas</object>
+        <object>objects\obj_enemy_laser</object>
         <object>objects\obj_newspiny</object>
+        <object>objects\obj_newbuzzy</object>
         <object>objects\obj_thwomptile</object>
         <object>objects\obj_newcannon</object>
         <object>objects\obj_newbill</object>
@@ -1752,12 +1797,17 @@
         <object>objects\obj_newdrybowser</object>
         <object>objects\obj_peachbowser</object>
       </objects>
+      <objects name="Veggies">
+        <object>objects\obj_radish</object>
+        <object>objects\obj_veggie_item</object>
+      </objects>
     </objects>
     <objects name="GUI Tiles">
       <object>objects\obj_togglelevel_left</object>
       <object>objects\obj_togglelevel_right</object>
       <object>objects\obj_gui_parent</object>
       <object>objects\obj_gui_tile</object>
+      <object>objects\obj_tilegui_control</object>
       <object>objects\obj_brick_gui</object>
       <object>objects\obj_itemblock_gui</object>
       <object>objects\obj_block_gui</object>
@@ -1938,6 +1988,11 @@
       <object>objects\obj_loadtile</object>
       <object>objects\obj_skin</object>
       <object>objects\obj_theme</object>
+      <object>objects\obj_options</object>
+      <object>objects\obj_optionparent</object>
+      <object>objects\obj_options1</object>
+      <object>objects\obj_options2</object>
+      <object>objects\obj_options3</object>
       <object>objects\obj_skinparent</object>
       <object>objects\obj_skin1</object>
       <object>objects\obj_skin2</object>
@@ -1986,6 +2041,8 @@
       <object>objects\obj_scen_bush</object>
       <object>objects\obj_scen_tree</object>
       <object>objects\obj_scen_sign</object>
+      <object>objects\obj_scen_veg</object>
+      <object>objects\obj_veg_check</object>
     </objects>
     <objects name="Mixer">
       <object>objects\obj_hex_init</object>
@@ -2053,6 +2110,7 @@
     <room>rooms\room_tuskbuck</room>
     <room>rooms\room_titlescreen_new</room>
     <room>rooms\room_stageselect</room>
+    <room>rooms\room_levelcreator_old</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

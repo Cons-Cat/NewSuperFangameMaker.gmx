@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>///Parent of all enemies
 
-x = ((mouse_x div 16)*16)+8;
-y = ((mouse_y div 16)*16)+8;
+//x = ((mouse_x div 16)*16)+8;
+//y = ((mouse_y div 16)*16)+8;
 
 //How vulnerable is this enemy to various items?
     //Fireballs
@@ -45,10 +45,11 @@ y = ((mouse_y div 16)*16)+8;
     //0: Normal
     //1: Hurt Mario
     //2: Shell
+    //3: Dry Bones
     stomp = 0;
 
 //Facing direction
-direct = -1
+direct = 0;
 
 //X and Y reset coordinates
 xSet = x;
@@ -65,6 +66,10 @@ col = make_color_rgb(247,205,57);
 //How the enemy dies
 dead = 0;
 fallY = 0;
+dried = 0;
+dryTime = 135;
+dryStop = 0;
+canStomped = 0;
 
 //If you can delete the object
 destroyable = 0;
@@ -87,6 +92,10 @@ boo = 0;
 spd = 0;
 canAttack = 1;
 bill = 0;
+laaShoot = 0;
+shooting = 0;
+fromBillColl = 1;
+alarm[11] = 600;
 
 //Image speed
 image_speed = 0;
@@ -110,6 +119,88 @@ bossFire = 1;
 bossDir = 0;
 shootLoop = 0;
 bossJump = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_speed = 0;
+dryStop = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Dry Bones picked up
+dried = 0;
+dead = 0;
+dryStop = 0;
+sprite_index = liveSpr;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Dry Bones picking up
+alarm[9] = 16;
+sprite_index = deadSpr2;
+image_speed = 0.2;
+image_index = 0;
+dryStop = 0;
 
 </string>
           </argument>
@@ -383,6 +474,9 @@ if instance_exists(obj_play){
         bossDir = 0;
         shootLoop = 0;
         bossJump = 0;
+        fromBillColl = 0;
+        dried = 0;
+        dryStop = 0;
         
         if fromBlock = 1{
             instance_destroy();
@@ -554,21 +648,23 @@ if instance_exists(obj_play){
     
             //Collisions
             if boss = 0{
-                if collision_point(x-8,y,obj_solid,false,false){
-                    //Change direction
-                    direct = 1;
-                }
-                if collision_point(x-8,y,obj_block_parent,false,false){
-                    //Change direction
-                    direct = 1;
-                }
-                if collision_point(x+8,y,obj_solid,false,false){
-                    //Change direction
-                    direct = 0;
-                }
-                if collision_point(x+8,y,obj_block_parent,false,false){
-                    //Change direction
-                    direct = 0;
+                if fromBillColl = 0{
+                    if collision_point(x-8,y,obj_solid,false,false){
+                        //Change direction
+                        direct = 1;
+                    }
+                    if collision_point(x-8,y,obj_block_parent,false,false){
+                        //Change direction
+                        direct = 1;
+                    }
+                    if collision_point(x+8,y,obj_solid,false,false){
+                        //Change direction
+                        direct = 0;
+                    }
+                    if collision_point(x+8,y,obj_block_parent,false,false){
+                        //Change direction
+                        direct = 0;
+                    }
                 }
             }
         }
@@ -617,6 +713,7 @@ if dead = 1{
 if dead = 2{
     //Item death
     hspeed = 0;
+    image_speed = 0;
     vspeed = -2;
     dead = 3;
     fallY = 1;
@@ -640,6 +737,25 @@ if dead = 4{
         //kickDeadly = 0;
     }
 }
+
+if dead = 5{
+    //Dry Bones
+    hspeed = 0;
+    image_speed = 0.2;
+    
+    if dried = 0{
+        dried = 1;
+        image_index = 0;
+        alarm[10] = 16;
+        sprite_index = deadSpr;
+        alarm[8] = dryTime;
+    }
+    
+    if dryStop = 1{
+        image_speed = 0;
+    }
+}
+
 
 //Being stacked
 if bill = 0{
@@ -666,6 +782,15 @@ if dead = 0{
             }
         }
     }
+}
+
+if !collision_rectangle(x-7,y-7,x+7,y+7,obj_solidtop,false,false){
+    fromBillColl = 0;
+}
+
+//Laser
+if shooting = 2{
+    hspeed = 0;
 }
 
 </string>
@@ -717,6 +842,10 @@ if dead = 0{
 }
 
 if dead = 4 &amp;&amp; hspeed != 0{
+    if other.dead = 4{
+        self.dead = 2;
+    }
+    
     other.dead = 2;
 }
 
@@ -826,14 +955,21 @@ if other.dead = 0{
         if obj_player.y &lt; self.y-7{
             if dead = 0{
                 if obj_player.vspeed &gt; 0{
-                    if stomp = 0{
-                        //Instant death
-                        dead = 1;
-
-                    }
-                    if stomp = 2{
-                        //Shell
-                        dead = 4;
+                    if canStomped = 0{
+                        if stomp = 0{
+                            //Instant death
+                            dead = 1;
+                        }
+                        
+                        if stomp = 2{
+                            //Shell
+                            dead = 4;
+                        }
+                        
+                        if stomp = 3{
+                            //Drt Bones
+                            dead = 5;
+                        }
                     }
                     
                     //Bouncing off of enemy
@@ -882,28 +1018,33 @@ if obj_play.inEditor = 0{
                             other.invinciblea = 1;
                             other.alarm[6] = 60;
                             
-                            if other.amiibo = 0{
-                                if other.item = 0{
-                                    if other.dead = 0{
-                                        other.dead = 1;
-                                        other.deathY = other.y;
+                            if other.helm = 0{
+                                if other.amiibo = 0{
+                                    if other.item = 0{
+                                        if other.dead = 0{
+                                            other.dead = 1;
+                                            other.deathY = other.y;
+                                        }
+                                    } else if other.item = 1 || other.item = 4 {
+                                        other.item = 0;
+                                    } else {
+                                        other.item = 1;
                                     }
-                                } else if other.item = 1 || other.item = 4 {
-                                    other.item = 0;
                                 } else {
-                                    other.item = 1;
+                                    //if other.invinciblea = 0{
+                                        other.dead = 0;
+                                        with instance_create(other.x,other.y,obj_amiibo_die){
+                                            amiibo = obj_player.amiibo;
+                                        }
+                                        obj_player.amiibo = 0;
+                                    //}
                                 }
                             } else {
-                                //if other.invinciblea = 0{
-                                    other.dead = 0;
-                                    with instance_create(other.x,other.y,obj_amiibo_die){
-                                        amiibo = obj_player.amiibo;
-                                    }
-                                    obj_player.amiibo = 0;
-                                //}
+                                with instance_create(other.x,other.y,obj_helm_die){
                             }
                         }
                     }
+                }
             /*} else if other.hit &lt; 2{
                 if other.hit = 0{
                     other.hit = 1;
@@ -995,13 +1136,13 @@ if dead = 4{
         if kickDeadly = 0{
             if obj_player.y &gt;= self.y-8{
                 if obj_player.x &gt;= self.x{
-                    hspeed = -3.3;
+                    //hspeed = -3.3;
                     direct = 0;
                     image_speed = -0.3;
                     alarm[2] = 6;
                 }
                 if obj_player.x &lt; self.x{
-                    hspeed = 3.3;
+                    //hspeed = 3.3;
                     image_speed = 0.3;
                     direct = 1;
                     alarm[2] = 6;

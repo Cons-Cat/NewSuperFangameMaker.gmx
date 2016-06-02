@@ -41,13 +41,39 @@ if canchange = 0{
 }
 
 if canchange = 0{
-    if global.skin = 4{
+    //if global.skin = 4{
         if obj_player.image_xscale = 1{
             hspeed = 5;
         } else {
             hspeed = -5;
         }
-    }
+    //}
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if other.laserproof = 0{
+    other.dead = 1;
 }
 
 </string>

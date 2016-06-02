@@ -50,10 +50,16 @@ mounted = 0;
 shake = 0;
 mountJump = 0;
 bx = 0;
+helmOff = 0;
 shake = 0;
+pull = 0;
 rideX = 0;
+carrying = 0;
 rideY = 0;
+transforming = 1;
+transItem = 2;
 face = 1;
+helm = 0;
             bumpOff = 0;
         global.skin = 0;
 climbing = 0;
@@ -815,6 +821,7 @@ if amiibo != 6{
 if canMove = 1{
 
 //Movement
+if pull = 0{
 if climbing = 0{
 if (duck = 0 &amp;&amp; jumpnow = 0) || jumpnow = 1 || jumpnow = 2{
 if global.skin != 4{
@@ -978,10 +985,11 @@ if keyboard_check(vk_left){
                             if _xspeed != 0{
                                 sprite_index = spr_mario_1_walk;
                             } else {
-                                sprite_index = spr_mario_1_still;
+                                if pull = 0{
+                                    sprite_index = spr_mario_1_still;
+                                }
                             }
                         }
-                        
                         
                         // Left
                         //if (keyboard_check(_keyarr[0]) &amp;&amp; !_isSliding &amp;&amp; (!_isGroundPound || (_isGroundPound == 1 &amp;&amp; _xspeed = 0)) &amp;&amp; _sidemove) {
@@ -1034,6 +1042,11 @@ if duck = 1{
             }
         }
     }
+}
+
+} else {
+    //Pulling veggies
+    hspeed = 0;
 }
 
 if global.skin != 4{
@@ -1473,11 +1486,11 @@ if dead = 1{
 if instance_exists(obj_play){
     if obj_play.inEditor = 0{
         if dead = 0{
-            if y &gt;= room_height/2-56{
+            if y &gt;= 280+320-16{
                 deadga = 1;
                 dead = 1;
                 sprite_index = spr_mario_dead;
-                deathY = 256;
+                deathY = 256+320;
             }
         }
     }
@@ -2305,6 +2318,7 @@ if global.skin = 1{
             and not instance_exists(obj_statue)
             and isduck = 0
             and isjump = 0
+            and pull = 0
             {
             vspeed = -1.5
             sound_play(snd_jump_smw)
@@ -2318,28 +2332,33 @@ if global.skin = 1{
             }
             if keyboard_check_released(ord('X')) and jumpnow = 1
             jumpnow = 2
-            if keyboard_check(vk_right) and not instance_exists(obj_puller) and isduck = 0 and not keyboard_check(vk_left)
-            {
-            hspeed += 0.11
-            if isjump = 0
-            direct = 1
+            if pull = 0{
+                if keyboard_check(vk_right) and not instance_exists(obj_puller) and isduck = 0 and not keyboard_check(vk_left)
+                {
+                hspeed += 0.11
+                if isjump = 0
+                direct = 1
+                }
+                if keyboard_check(vk_left) and not instance_exists(obj_puller) and isduck = 0 and not keyboard_check(vk_right)
+                {
+                hspeed += -0.11
+                if isjump = 0
+                direct = -1
+                }
+                else
+                {
+                if hspeed &gt; 0
+                hspeed-=0.05
+                if hspeed &lt; 0
+                hspeed+=0.05
+                if hspeed &lt; 0.05
+                if hspeed &gt; -0.05
+                hspeed = 0
+                }
+            } else {
+                sprite_index = spr_mario_hell_pull;
             }
-            if keyboard_check(vk_left) and not instance_exists(obj_puller) and isduck = 0 and not keyboard_check(vk_right)
-            {
-            hspeed += -0.11
-            if isjump = 0
-            direct = -1
-            }
-            else
-            {
-            if hspeed &gt; 0
-            hspeed-=0.05
-            if hspeed &lt; 0
-            hspeed+=0.05
-            if hspeed &lt; 0.05
-            if hspeed &gt; -0.05
-            hspeed = 0
-            }
+            
             if hspeed &gt; hspeedmax
             hspeed = hspeedmax
             if hspeed &lt; hspeedmax*-1
@@ -2467,12 +2486,22 @@ if global.skin = 1{
         if dead = 0{
         if (hspeed &gt; 0 &amp;&amp; keyboard_check(vk_left)) || (hspeed &lt; 0 &amp;&amp; keyboard_check(vk_right)){
             if jumpnow = 0{
-                sprite_index = spr_mario_1_skid;
+                if carrying = 0{
+                    sprite_index = spr_mario_1_skid;
+                } else {
+                    sprite_index = spr_mario_hell_carry_walk;
+                    image_speed = 0;
+                    image_index = 1;
+                }
             }
         } else {
             if hspeed &gt; 0{
                 if vspeed = 0{
-                    sprite_index = spr_mario_1_walk;
+                    if carrying = 0{
+                        sprite_index = spr_mario_1_walk;
+                    } else {
+                        sprite_index = spr_mario_hell_carry_walk;
+                    }
                 }
                 image_xscale = 1;
             }
@@ -2480,14 +2509,26 @@ if global.skin = 1{
             if hspeed &lt; 0{
                 if vspeed = 0{
                     if !collision_point(x-9,y,obj_solid,false,false){
-                        sprite_index = spr_mario_1_walk;
+                        if carrying = 0{
+                            sprite_index = spr_mario_1_walk;
+                        } else {
+                            sprite_index = spr_mario_hell_carry_walk;
+                        }
                     }
                     image_xscale = -1;
                 }
             }
             
             if hspeed = 0{
-                sprite_index = spr_mario_1_still;
+                if pull = 0{
+                    if carrying = 0{
+                        sprite_index = spr_mario_1_still;
+                    } else {
+                        sprite_index = spr_mario_hell_carry_still;
+                    }
+                } else {
+                    sprite_index = spr_mario_hell_pull;
+                }
             }
         }
         
@@ -2496,7 +2537,13 @@ if global.skin = 1{
         
         if !collision_rectangle(x-8,y+18,x+8,y+18,obj_solidtop,false,false){
             if !collision_rectangle(x-8,y+18,x+8,y+18,obj_block_parent,false,false){
-                sprite_index = spr_mario_1_jump;
+                if carrying = 0{
+                    sprite_index = spr_mario_1_jump;
+                } else {
+                    sprite_index = spr_mario_hell_carry_walk;
+                    image_index = 1;
+                    image_speed = 0;
+                }
             }
         }
         
@@ -3066,6 +3113,8 @@ if instance_exists(obj_play){
     if obj_play.inEditor = 1{
         onionAlarm = 2;
         climbing = 0;
+        pull = 0;
+        carrying = 0;
         mounted = 0;
         image_speed = 0;
         image_xscale = 1;
@@ -3090,7 +3139,7 @@ if instance_exists(obj_play){
             if keyboard_check(vk_down){
                 y += 3;
             }
-        } else {
+        }/* else {
             if keyboard_check(vk_right){
                 x += 30;
             }
@@ -3103,13 +3152,83 @@ if instance_exists(obj_play){
             if keyboard_check(vk_down){
                 y += 30;
             }
-        }
+        }*/
         if mouse_x &gt; self.x-64 &amp;&amp; mouse_x &lt; self.x+64 &amp;&amp; mouse_y &gt; self.y-64 &amp;&amp; mouse_y &lt; self.y+64 &amp;&amp; keyboard_check(vk_shift) &amp;&amp; mouse_check_button(mb_right){
             if (global.skin = 0 &amp;&amp; item != 0 &amp;&amp; item != 4) || global.skin != 0 || amiibo != 0{
                 sprite_index = spr_bigmario_1_duck;
             }
         }
     }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Powerup
+//if transforming = 1{
+if instance_exists(obj_pu_handle){
+    if obj_pu_handle.gone = 0{
+        obj_pu_handle.gone = 1;
+        obj_pu_handle.alarm[0] = obj_pu_handle.interval;
+    }
+    hspeed = 0;
+    vspeed = 0;
+    x = puX;
+    y = puY;
+    canMove = 0;
+    
+    visible = false;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Helmet offsets
+if jumpnow = 0{
+    if hspeed &gt; 0{
+        helmOff = 1;
+    }
+    if hspeed &lt; 0{
+        helmOff = -1;
+    }
+}
+
+if hspeed = 0{
+    helmOff = 0;
 }
 
 </string>
@@ -3405,13 +3524,24 @@ image_angle = 0;
     instance_destroy();
 }
 
-if item != 2{
-    instance_create(x,y,obj_powerup);
-    obj_powerup.item = 2;
+if other.visible = true{
+    if item != 2{
+        //instance_create(x,y,obj_powerup);
+        //obj_powerup.item = 2;
+        instance_create(x,y,obj_pu_handle);
+        //obj_pu_handle.sprite_index = sprite_index;
+        obj_pu_handle.itemBase = self.item;
+        obj_pu_handle.itemAlt = 2;
+        obj_pu_handle.image_index = self.image_index;
+        transforming = 1;
+        transItem = 2;
+        puX = x;
+        puY = y;
+    }
+    
+    amiibo = 0;
+    image_angle = 0;
 }
-
-amiibo = 0;
-image_angle = 0;
 
 </string>
           </argument>
@@ -3914,6 +4044,10 @@ with instance_create(x,y,obj_shadow){
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index,image_index,x-rideX,y-rideY+bumpOff,image_xscale,image_yscale,image_angle,c_white,image_alpha);
 
+if helm = 1{
+    draw_sprite_ext(spr_smb1_buzzyhelm,image_index,x+helmOff,y,image_xscale,image_yscale,image_angle,c_white,image_alpha);
+}
+
 if select = 1{
     if image_xscale != -1{
         draw_set_color(col);
@@ -3925,7 +4059,7 @@ if select = 1{
         draw_rectangle(x-8+16,y-7+8,(x+image_xscale*16)-10+16,y+image_yscale*16-9+8,true);
     }
 }
- 
+
 </string>
           </argument>
         </arguments>

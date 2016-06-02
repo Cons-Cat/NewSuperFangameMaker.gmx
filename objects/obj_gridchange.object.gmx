@@ -70,7 +70,10 @@ view_hview[1] = 320;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_play.inEditor = 1{
+            <string>background_y[1] = -32;
+background_vtiled[1] = true;
+
+if obj_play.inEditor = 1{
     visible = true;
     background_visible[2] = true;
 } else {
@@ -111,9 +114,12 @@ if global.skin = 1{
     if global.theme = 1{
         background_index[1] = bck_hell_underground;
     }
+    if global.theme = 2{
+        background_index[1] = bck_hell_snow;
+    }
     
 }
-if global.skin = 2{
+/*if global.skin = 2{
     if image_index = 0{
         background_index[2] = bck_nova;
     }
@@ -139,10 +145,10 @@ if global.skin = 4{
         background_index[2] = bck_mg_alt;
     }
     background_index[1] = bck_mg_color;
-}
+}*/
 
 x = view_xview[2]+26;
-y = 292-8;
+y = view_yview[2]+292-8;
 
 //Offset
 if image_index = 0{

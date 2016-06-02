@@ -31,6 +31,7 @@ spr = spr_inv;
 imidx = 0;
 hit = 0;
 yOff = 0;
+IDGAFFFFF = 0;
 
 </string>
           </argument>
@@ -62,6 +63,7 @@ if !instance_exists(target){
     instance_destroy();
 } else {
     itemb = target.item;
+    if IDGAFFFFF = 0{
     if itemb = 1{
         spr = spr_smb1_mushroom;
         imidx = 0;
@@ -124,6 +126,38 @@ if !instance_exists(target){
         imidx = choose(1,2,3,4,5,6,7,8);
         yOff = 0;
     }
+    } else {
+        if setttttt = obj_mushroom_tile{
+            spr = spr_smb1_mushroom;
+        }
+        if setttttt = obj_fireflower_tile{
+            spr = spr_smb1_fireflower;
+        }
+        if setttttt = obj_cappy{
+            spr = spr_smb1_cappy;
+        }
+        if setttttt = obj_lasflower_tile{
+            spr = spr_smb1_lasflower;
+        }
+        if setttttt = obj_armorflower{
+            spr = spr_smb1_armflower;
+        }
+        if setttttt = obj_newgoomba{
+            spr = spr_smb1_goomba;
+        }
+        if setttttt = obj_newkoopa{
+            spr = spr_smb1_koopa;
+        }
+        if setttttt = obj_newkoopared{
+            spr = spr_smb1_koopared;
+        }
+        if setttttt = obj_bootile{
+            spr = obj_bootile;
+        }
+        if setttttt = obj_newspiny{
+            spr = obj_newspiny;
+        }
+    }
 }
 
 </string>
@@ -150,7 +184,10 @@ if !instance_exists(target){
             <kind>1</kind>
             <string>draw_set_alpha(1);
 draw_set_color(c_white);
-draw_triangle(x-8,y+8,x+8,y-8,target.x,target.y,false);
+
+if instance_exists(target){
+    draw_triangle(x-8,y+8,x+8,y-8,target.x,target.y,false);
+}
 
 draw_sprite(spr_itemshowbig,0,x,y);
 

@@ -100,35 +100,43 @@ if level = 0{
         
         obj_togglelevel_left.image_index = 1;
         with instance_create(101,11,obj_gui_tile){
-            instance = obj_bricktile;
+            exVal = 0;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 101;
         }
         with instance_create(124,11,obj_gui_tile){
-            instance = obj_itemblocktile;
+            exVal = 1;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 124;
         }
         with instance_create(147,11,obj_gui_tile){
-            instance = obj_blocktile;
+            exVal = 2;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 147;
         }
         with instance_create(170,11,obj_gui_tile){
-            instance = obj_solidplace_new;
+            exVal = 3;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 170;
         }
         with instance_create(295,11,obj_gui_tile){
-            instance = obj_pipetile;
+            exVal = 4;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 295;
         }
         with instance_create(318,11,obj_gui_tile){
-            instance = obj_cointile;
+            exVal = 5;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 318;
         }
         with instance_create(341,11,obj_gui_tile){
-            instance = obj_ladder;
+            exVal = 6;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 341;
         }
         with instance_create(3464,11,obj_gui_tile){
-            instance = obj_spring;
+            exVal = 7;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 364;
         }
         //instance_create(304,11,obj_billcannon_gui);
@@ -178,32 +186,44 @@ if level = 1{
         
         obj_togglelevel_left.image_index = 1;
         with instance_create(101,11,obj_gui_tile){
-            instance = obj_newgoomba;
+            exVal = 8;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 101;
         }
         with instance_create(124,11,obj_gui_tile){
-            instance = obj_newkoopa;
+            exVal = 9;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 124;
         }
         with instance_create(147,11,obj_gui_tile){
-            instance = obj_bootile;
+            exVal = 10;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 147;
         }
         with instance_create(170,11,obj_gui_tile){
-            instance = obj_thwomptile;
+            exVal = 11;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 170;
         }
         with instance_create(295,11,obj_gui_tile){
-            instance = obj_newkoopared;
+            exVal = 12;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 295;
         }
         with instance_create(318,11,obj_gui_tile){
-            instance = obj_newspiny;
+            exVal = 13;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 318;
         }
         with instance_create(341,11,obj_gui_tile){
-            instance = obj_newcannon;
+            exVal = 14;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
             startx = 341;
+        }
+        with instance_create(364,11,obj_gui_tile){
+            exVal = 15;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
+            startx = 364;
         }
         /*with instance_create(295,11,obj_gui_tile){
             instance = obj_pipetile;
@@ -244,22 +264,36 @@ if level = 2{
         
         obj_togglelevel_left.image_index = 1;
         with instance_create(101,11,obj_gui_tile){
-            instance = obj_mushroom_tile;
+            exVal = 16;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(124,11,obj_gui_tile){
-            instance = obj_fireflower_tile;
+            exVal = 23;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(147,11,obj_gui_tile){
-            instance = obj_lasflower_tile;
+            exVal = 24;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(170,11,obj_gui_tile){
-            instance = obj_cappy;
+            exVal = 25;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(295,11,obj_gui_tile){
-            instance = obj_armorflower;
+            exVal = 26;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
+        }
+        with instance_create(318,11,obj_gui_tile){
+            exVal = 27;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
+        }
+        with instance_create(341,11,obj_gui_tile){
+            exVal = 28;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(364,11,obj_gui_tile){
-            instance = obj_amiiboshroom;
+            exVal = 29;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
     }
 }
@@ -293,28 +327,33 @@ if level = 3{
         instance_create(432,16,obj_leavegame);
         
         obj_togglelevel_left.image_index = 1;
+        with instance_create(364,11,obj_gui_tile){
+            exVal = 22;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
+        }
         with instance_create(101,11,obj_gui_tile){
-            instance = obj_newbowser;
+            exVal = 17;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(124,11,obj_gui_tile){
-            instance = obj_newdrybowser;
+            exVal = 18;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
         with instance_create(147,11,obj_gui_tile){
-            instance = obj_peachbowser;
+            exVal = 19;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
-        with instance_create(295,11,obj_gui_tile){
-            instance = obj_yoshi;
-            startx = 295;
-        }
-        with instance_create(364,11,obj_gui_tile){
-            instance = obj_sv;
-            startx = 364;
-        }/*
         with instance_create(170,11,obj_gui_tile){
-            instance = obj_cappy;
+            exVal = 30;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }
-        with instance_create(364,11,obj_gui_tile){
-            instance = obj_amiiboshroom;
+        /*with instance_create(295,11,obj_gui_tile){
+            exVal = 20;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
+        }
+        with instance_create(318,11,obj_gui_tile){
+            exVal = 21;
+            script_execute(scr_guitile,obj_tilegui_control.i[0]);
         }*/
     }
 }
@@ -378,7 +417,7 @@ if obj_play.inEditor = 0{
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -395,10 +434,12 @@ if obj_play.inEditor = 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if level &lt; 3{
-    level += 1;
-    with obj_gui_tile{
-        instance_destroy();
+            <string>if mouse_x &gt;= self.x &amp;&amp; mouse_x &lt;= self.x+sprite_width &amp;&amp; mouse_y &gt;= view_yview[2]+self.y &amp;&amp; mouse_y &lt;= view_yview[2]+self.y+sprite_height{
+    if level &lt; 3{
+        level += 1;
+        with obj_gui_tile{
+            instance_destroy();
+        }
     }
 }
 

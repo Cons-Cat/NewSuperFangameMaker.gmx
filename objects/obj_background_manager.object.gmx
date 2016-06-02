@@ -28,21 +28,22 @@
             <string>if global.skin = 0{
     if global.theme = 0{
         background_index[1] = bck_smb1_color;
+        background_vtiled[1] = false;
     }
     if global.theme = 1{
         background_index[1] = bck_smb1_underground;
+        background_vtiled[1] = true;
         if obj_gridchange.image_index = 0{
             background_index[2] = bck_light;
         } else {
             background_index[2] = bck_light_alt;
         }
-    }
-    
+    }    
 }
 
-//Debug stuff
-/*if global.theme = 1{
-    global.theme = 0;
+if global.skin = 6{
+    background_index[1] = bck_redeem_color;
+    background_vtiled[1] = true;
 }
 
 </string>

@@ -30,7 +30,9 @@ instance = obj_cointile;
 spriteVal = spr_solid;
 
 startx = self.x;
+starty = self.y;
 ax = 0;
+ay = 0;
 
 playVar = 0;
 
@@ -198,6 +200,15 @@ if obj_play.inEditor = 1{
     if instance = obj_newkoopared{
         sprite_index = spr_smb1_kooparedgui;
     }
+    if instance = obj_newkoopaspring{
+        sprite_index = spr_smb1_koopalasgui;
+    }
+    if instance = obj_newboolas{
+        sprite_index = spr_smb1_boolaser;
+    }
+    if instance = obj_newgoombalas{
+        sprite_index = spr_smb1_goombalaser;
+    }
     if instance = obj_bootile{
         sprite_index = spr_smb1_bootile;
     }
@@ -246,6 +257,12 @@ if obj_play.inEditor = 1{
     if instance = obj_spring{
         sprite_index = spr_smb1_spring;
     }
+    if instance = obj_newbuzzy{
+        sprite_index = spr_smb1_buzzy;
+    }
+    if instance = obj_newdrykoopa{
+        sprite_index = spr_smb1_drygui;
+    }
     
     spriteVal = sprite_index;
 } else {
@@ -280,7 +297,22 @@ if obj_play.inEditor = 1{
             yFloor -= 8;
             altDrag = 1;
         }
+        if instance = obj_newgoombalas{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
+        if instance = obj_newbuzzy{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
         if instance = obj_newbowser{
+            offset = 8;
+            yFloor -= 8;
+            altDrag = 1;
+        }
+        if instance = obj_newdrykoopa{
             offset = 8;
             yFloor -= 8;
             altDrag = 1;
@@ -312,7 +344,17 @@ if obj_play.inEditor = 1{
             offset = 8;
             altDrag = 1;
         }
+        if instance = obj_newboolas{
+            yFloor -= 8;
+            offset = 8;
+            altDrag = 1;
+        }
         if instance = obj_newkoopa{
+            yFloor -= 8;
+            offset = 8;
+            altDrag = 1;
+        }
+        if instance = obj_newkoopaspring{
             yFloor -= 8;
             offset = 8;
             altDrag = 1;
@@ -425,7 +467,6 @@ if y &gt; yFloor+8{
     if jump = 3{
         vspeed = 0;
     }
-    
 }
 
 /*if select = 1{
@@ -501,19 +542,19 @@ canPlace = 0;
             <kind>1</kind>
             <string>///Select this tile
 if instance = obj_cointile || instance = obj_blocktile{
-    if mouse_x &gt;= self.x &amp;&amp; mouse_x &lt;= self.x+16 &amp;&amp; mouse_y &gt;= self.y-8 &amp;&amp; mouse_y &lt;= self.y+8{
+    if mouse_x &gt;= self.x &amp;&amp; mouse_x &lt;= self.x+16 &amp;&amp; mouse_y &gt;= view_yview[2]+self.y-8 &amp;&amp; mouse_y &lt;= view_yview[2]+self.y+8{
         obj_gui_tile.select = 0;
         self.select = 1;
     }
 } else {
-    if mouse_x &gt;= self.x-8 &amp;&amp; mouse_x &lt;= self.x+8 &amp;&amp; mouse_y &gt;= self.y &amp;&amp; mouse_y &lt;= self.y+16{
+    if mouse_x &gt;= self.x-8 &amp;&amp; mouse_x &lt;= self.x+8 &amp;&amp; mouse_y &gt;= view_yview[2]+self.y &amp;&amp; mouse_y &lt;= view_yview[2]+self.y+16{
         obj_gui_tile.select = 0;
         self.select = 1;
     }
 }
 
 if instance = obj_amiiboshroom{
-    if mouse_x &gt;= self.x-8 &amp;&amp; mouse_x &lt;= self.x+8 &amp;&amp; mouse_y &gt;= self.y &amp;&amp; mouse_y &lt;= self.y+16{
+    if mouse_x &gt;= self.x-8 &amp;&amp; mouse_x &lt;= self.x+8 &amp;&amp; mouse_y &gt;= view_yview[2]+self.y &amp;&amp; mouse_y &lt;= view_yview[2]+self.y+16{
         if !instance_exists(obj_amiibobox){
             if global.skin = 0{
                 instance_create(x,y,obj_amiiboselect);
@@ -546,7 +587,7 @@ if instance = obj_amiiboshroom{
           <argument>
             <kind>1</kind>
             <string>if global.selected = 0{
-if ((mouse_x &lt; view_xview[2]+(128+69)*2+10+4-sprite_width/4+16) &amp;&amp; (mouse_y &lt; view_yview[2]+128*2+7-40)) || ((mouse_x &lt; view_xview[2]+(128+69)*2+10+4-sprite_width/4+16) &amp;&amp; !(mouse_y &lt; view_yview[2]+128*2+7-40)){
+//if ((mouse_x &lt; view_xview[2]+(128+69)*2+10+4-sprite_width/4+16) &amp;&amp; (mouse_y &lt; view_yview[2]+128*2+7-40+240)) || ((mouse_x &lt; view_xview[2]+(128+69)*2+10+4-sprite_width/4+16) &amp;&amp; !(mouse_y &lt; view_yview[2]+128*2+7-40)){
 if mouse_x &gt; view_xview[2]+79{
 if mouse_x &lt; view_xview[2]+480-81
 //if mouse_y &lt; view_yview[2]+128*2+7-41{
@@ -555,8 +596,8 @@ if mouse_x &lt; view_xview[2]+480-81
     //if canPlace = 0{
         if obj_play.inEditor = 1{
             if select = 1{
-                if mouse_y &gt; 37{
-                    if mouse_y &lt; 280-8{
+                if mouse_y &gt; view_yview[2]+37 &amp;&amp; mouse_y &lt; view_yview[2]+280+320-32{
+                 //   if mouse_y &lt; 280-8+240{
                         //if position_empty(mouse_x,mouse_y){
                             if altDrag = 0{
                                 if !collision_point(mouse_x,mouse_y,obj_superparent,true,false){
@@ -567,7 +608,7 @@ if mouse_x &lt; view_xview[2]+480-81
                                                 x=floor(x/16)*16;
                                                 y=floor(y/16)*16;
                                                 //x = ((mouse_x div 16)*16);
-                                                //y = ((mouse_y div 16)*16)-8;
+                                                //y = ((mouse_y div 16)*16);
                                             }
                                             canPlace = 1;
                                             alarm[2] = 5;
@@ -602,13 +643,13 @@ if mouse_x &lt; view_xview[2]+480-81
                                 }
                             }
                         }
-                    }
+            //        }
                 }
             }
         }
     //}
 }
-}
+//}
 }
 
 </string>

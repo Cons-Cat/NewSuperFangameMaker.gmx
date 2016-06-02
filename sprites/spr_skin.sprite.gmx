@@ -30,5 +30,6 @@
     <frame index="7">images\spr_skin_7.png</frame>
     <frame index="8">images\spr_skin_8.png</frame>
     <frame index="9">images\spr_skin_9.png</frame>
+    <frame index="10">images\spr_skin_10.png</frame>
   </frames>
 </sprite>

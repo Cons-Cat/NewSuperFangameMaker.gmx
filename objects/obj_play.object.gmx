@@ -510,7 +510,7 @@ if room != room_levelcreator{
             <kind>1</kind>
             <string>///Click
 //if mouse_check_button_pressed(mb_left) || obj_player.deadReset = 1{
-
+if !instance_exists(obj_tileselect){
 if room = room_levelcreator{
 if mouse_x &gt; view_xview[2]+(128+69)*2+10+4-sprite_width/4+16{
 if mouse_y &gt; view_yview[2]+128*2+7-41{
@@ -662,6 +662,7 @@ if inEditor = 1{
     obj_blocktile.asdf = 0;
     obj_pipetile.gone = 0;
     obj_thwomptile.charge = 0;
+    obj_player.helm = 0;
     with obj_coinslide{
         instance_destroy();
     }
@@ -705,8 +706,7 @@ alarm[0] = 4;
 }
 }
 }
-
-//}
+}
 
 </string>
           </argument>
@@ -867,13 +867,13 @@ alarm[0] = 4;
 d3d_set_fog(true,c_black,0,0);
 draw_set_alpha(0.3);
 
-draw_sprite(sprite,image_index,view_xview[1]+(128+69)*2+10+4+3,view_yview[1]+128*2+7-40+3);
+draw_sprite(sprite,image_index,(128+69)*2+10+4+3,128*2+7-40+3);
 
 draw_set_alpha(1);
 d3d_set_fog(false,c_black,0,0);
 
 //Draw self
-draw_sprite(sprite,image_index,view_xview[1]+(128+69)*2+10+4,view_yview[1]+128*2+7-40);
+draw_sprite(sprite,image_index,(128+69)*2+10+4,128*2+7-40);
 
 </string>
           </argument>

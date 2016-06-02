@@ -83,6 +83,12 @@ enemyVal = obj_bill_tile;
         riTar.val = self.enemyVal;
         riTar.select = 0;
         riTar.billFire = 1;
+        if riTar.stomp = 2{
+            //alarm[0] = 8;
+            riTar.dead = 4;
+            riTar.kick = 1;
+        }
+        
         if obj_player.x &gt;= self.x{
             riTar.hspeed = 2.5;
             riTar.image_xscale = 1;
@@ -184,6 +190,39 @@ enemyVal = obj_bill_tile;
           <argument>
             <kind>1</kind>
             <string>canMake = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if instance_exists(riTar){
+    riTar.dead = 4;
+    if obj_player.x &gt;= self.x{
+        riTar.hspeed = 2.5;
+        riTar.image_xscale = 1;
+    } else {
+        riTar.hspeed = -2.5;
+        riTar.image_xscale = -1;
+    }
+}
 
 </string>
           </argument>
@@ -367,26 +406,28 @@ if !collision_point(x,y-16,obj_newcannon,false,true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if cannon = 1{
-    if item != 0{
-        if canMake = 1{
-            if mouse_x &gt; self.x-8 &amp;&amp; mouse_x &lt; self.x+8 &amp;&amp; mouse_y &gt; self.y-8 &amp;&amp; mouse_y &lt; self.y+8{
-                if instance_exists(obj_blockitem){
-                    if obj_blockitem.target != self.id{
-                        with obj_blockitem{
-                            instance_destroy();
+            <string>if obj_play.inEditor = 1{
+    if cannon = 1{
+        if item != 0{
+            if canMake = 1{
+                if mouse_x &gt; self.x-8 &amp;&amp; mouse_x &lt; self.x+8 &amp;&amp; mouse_y &gt; self.y-8 &amp;&amp; mouse_y &lt; self.y+8{
+                    if instance_exists(obj_blockitem){
+                        if obj_blockitem.target != self.id{
+                            with obj_blockitem{
+                                instance_destroy();
+                            }
+                            
+                            tarSet = instance_create(x-24,y-16,obj_blockitem);
+                            tarSet.target = self.id;
+                        } else {
+                            with obj_blockitem{
+                                instance_destroy();
+                            }
                         }
-                        
+                    } else {
                         tarSet = instance_create(x-24,y-16,obj_blockitem);
                         tarSet.target = self.id;
-                    } else {
-                        with obj_blockitem{
-                            instance_destroy();
-                        }
                     }
-                } else {
-                    tarSet = instance_create(x-24,y-16,obj_blockitem);
-                    tarSet.target = self.id;
                 }
             }
         }

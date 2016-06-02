@@ -28,7 +28,9 @@
             <string>select = 1;
 wyn = instance_create(x,y,obj_shadow);
 wyn.target = self.id;
-global.selected = 1;
+col = make_color_rgb(247,205,57);
+released = 1;
+releaseTime = 0;
 
 </string>
           </argument>
@@ -78,10 +80,23 @@ script_execute(scr_enemy);
           <argument>
             <kind>1</kind>
             <string>//Dragging
-if select = 1{    
-    x = ((mouse_x div 16)*16)+8;
-    y = ((mouse_y div 16)*16)+8;
+if select = 1{
+    selOff = 3;
+    
+    if released = 1{
+        x = ((mouse_x div 16)*16)+8;
+        y = ((mouse_y div 16)*16)+8;
+        select = 0;
+    } else {
+        x = mouse_x//+8;
+        y = mouse_y//-8;
+        global.selected = 1;
+    }
+    depth = -1000;
+} else {
+    selOff = 0;
 }
+
 
 if object_index != obj_vine_rise &amp;&amp; object_index != obj_vine{
     if collision_rectangle(x-1,y-16,x+1,y+16,obj_ladder,false,true){
@@ -121,9 +136,17 @@ if object_index != obj_vine_rise &amp;&amp; object_index != obj_vine{
           <argument>
             <kind>1</kind>
             <string>if select = 1{
+//    audio_sound_pitch(sound,pth);
+    //audio_sound_pitch(sound,pitch)
+//    audio_play_sound(sound,0,false);
+    x = ((mouse_x div 16)*16)+8;
+    y = ((mouse_y div 16)*16)+8;
     select = 0;
-    global.selected = 0;
 }
+
+released = 1;
+global.selected = 0;
+releaseTime = 1;
 
 </string>
           </argument>
@@ -171,7 +194,11 @@ if object_index != obj_vine_rise &amp;&amp; object_index != obj_vine{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>select = 1;
+            <string>if releaseTime = 1{
+
+    select = 1;
+    released = 0;
+}
 
 </string>
           </argument>
@@ -198,6 +225,41 @@ if object_index != obj_vine_rise &amp;&amp; object_index != obj_vine{
             <string>if keyboard_check(vk_shift){
     instance_destroy();
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white);
+draw_set_font(fnt_debug);
+//draw_text(x,y,image_index);
+
+if select = 1{
+    draw_set_color(col);
+    draw_set_alpha(0.75);
+    draw_rectangle(  ((mouse_x div 16)*16)+1,((mouse_y div 16)*16)+1,((mouse_x div 16)*16)+14,((mouse_y div 16)*16)+14,false)
+    draw_set_alpha(1);
+}
+
+draw_self();
 
 </string>
           </argument>

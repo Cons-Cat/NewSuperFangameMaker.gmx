@@ -62,7 +62,7 @@ if global.skin = 0{
 if global.skin = 1{
     image_index = 1;
 }
-if global.skin = 2{
+if global.skin = 6{
     image_index = 2;
 }
 if global.skin = 3{
@@ -146,7 +146,7 @@ if obj_play.inEditor = 0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if mouse_x &lt; view_xview[2]+81 &amp;&amp; mouse_y &lt; 35{
+            <string>if mouse_x &lt; view_xview[2]+81 &amp;&amp; mouse_y &lt; view_yview[2]+35{
     if level &lt; 2{
         level += 1{
             if level = 1{
